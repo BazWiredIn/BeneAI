@@ -1,0 +1,64 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+ENV/
+.Python
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+*.log
+logs/
+
+# Extension builds
+extension.zip
+*.crx
+*.pem
+
+# Demo materials
+demo/*.mp4
+demo/*.mov
+!demo/backup-demo.mp4
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
