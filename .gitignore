@@ -62,3 +62,9 @@ htmlcov/
 *.db
 *.sqlite
 *.sqlite3
+
+# Credentials (IMPORTANT: Never commit these!)
+*credentials*.json
+google-credentials.json
+*.pem
+*.key
