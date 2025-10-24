@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "session_start": 1761287358.525814,
+    "session_id": "session_1761287358",
+    "client_id": "fabd7184-2e78-4744-948d-93826986a8d1"
+  },
+  "emotions": [
+    {
+      "timestamp": 1761287358.8196611,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.5185938477516174,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.5185938477516174
+        },
+        {
+          "name": "Concentration",
+          "score": 0.42670938372612
+        },
+        {
+          "name": "Doubt",
+          "score": 0.42087554931640625
+        },
+        {
+          "name": "Boredom",
+          "score": 0.403006374835968
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.3473643958568573
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761287360.296999,
+      "investor_state": "skeptical",
+      "primary_emotion": "Doubt",
+      "confidence": 0.4485630691051483,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.5582630038261414
+        },
+        {
+          "name": "Doubt",
+          "score": 0.4485630691051483
+        },
+        {
+          "name": "Concentration",
+          "score": 0.42510902881622314
+        },
+        {
+          "name": "Boredom",
+          "score": 0.4186862111091614
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.40418264269828796
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761287361.840495,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.4912596046924591,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.4912596046924591
+        },
+        {
+          "name": "Concentration",
+          "score": 0.45943596959114075
+        },
+        {
+          "name": "Boredom",
+          "score": 0.4033350348472595
+        },
+        {
+          "name": "Doubt",
+          "score": 0.3985707759857178
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.3149757981300354
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761287363.92561,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.47202634811401367,
+      "top_emotions": [
+        {
+          "name": "Concentration",
+          "score": 0.47202634811401367
+        },
+        {
+          "name": "Confusion",
+          "score": 0.46245813369750977
+        },
+        {
+          "name": "Boredom",
+          "score": 0.4293504059314728
+        },
+        {
+          "name": "Doubt",
+          "score": 0.38346531987190247
+        },
+        {
+          "name": "Calmness",
+          "score": 0.3529015779495239
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761287365.361307,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.4996882379055023,
+      "top_emotions": [
+        {
+          "name": "Concentration",
+          "score": 0.4996882379055023
+        },
+        {
+          "name": "Confusion",
+          "score": 0.45951220393180847
+        },
+        {
+          "name": "Boredom",
+          "score": 0.4452441334724426
+        },
+        {
+          "name": "Doubt",
+          "score": 0.3812974989414215
+        },
+        {
+          "name": "Calmness",
+          "score": 0.37054768204689026
+        }
+      ],
+      "face_detected": true
+    }
+  ],
+  "intervals": [
+    {
+      "interval_number": 1,
+      "timestamp": 1761287359.3196611,
+      "interval_start": 1761287358.8196611,
+      "interval_end": 1761287360.296999,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "avg_score": 0.538,
+          "trend": "stable"
+        },
+        {
+          "name": "Doubt",
+          "avg_score": 0.435,
+          "trend": "stable"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.426,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 2,
+      "timestamp": 1761287362.340495,
+      "interval_start": 1761287361.840495,
+      "interval_end": 1761287363.92561,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "avg_score": 0.477,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.466,
+          "trend": "stable"
+        },
+        {
+          "name": "Boredom",
+          "avg_score": 0.416,
+          "trend": "new"
+        }
+      ],
+      "words": [
+        {
+          "word": "Solve.",
+          "timestamp": 1761287361.925086,
+          "confidence": 0.0
+        }
+      ],
+      "full_text": "Solve.",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": false
+      }
+    }
+  ],
+  "llm_updates": [],
+  "events": []
+}

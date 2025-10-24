@@ -1,22 +1,106 @@
 """Prompt templates for GPT-4 coaching"""
 
-SYSTEM_PROMPT = """You are an expert communication coach specializing in high-stakes video calls.
+from .config import settings
 
-Your role:
-- Provide concise, actionable advice (max 50 words)
-- Focus on ONE specific improvement at a time
-- Be encouraging but direct
-- Use second person ("you")
-- Alternate focus between emotional tone and pacing
+# ============================================================================
+# NEGOTIATION COACH (for investor pitch demo)
+# ============================================================================
 
-Your expertise:
-- Emotional intelligence and tone management
-- Speech pacing and delivery
-- Professional communication best practices
-- Real-time coaching techniques
+# Load from config for easy customization
+NEGOTIATION_COACH_SYSTEM_PROMPT = settings.negotiation_coach_system_prompt
 
-Remember: The user is in a live call. Keep advice brief, clear, and immediately actionable.
-"""
+
+def build_negotiation_prompt(context: dict) -> str:
+    """
+    Build negotiation coaching prompt from time-series context
+
+    Args:
+        context: Formatted context from LLMContextBuilder
+
+    Returns:
+        Complete prompt string for GPT-4
+    """
+    import logging
+    logger = logging.getLogger(__name__)
+
+    summary = context.get("summary", {})
+    patterns = context.get("patterns", {})
+    intervals = context.get("intervals", [])
+
+    # Get emotion trajectory across intervals
+    emotion_trajectory = []
+    for i, interval in enumerate(intervals):
+        emotions = interval.get("emotions", [])
+        speech = interval.get("speech", {}).get("text", "")
+
+        # Format emotions with trends
+        emotion_str = ", ".join([
+            f"{e['name']}({e['score']:.2f}, {e['trend']})"
+            for e in emotions[:3]
+        ])
+
+        interval_summary = f"[Interval {i+1}] Emotions: {emotion_str}"
+        if speech:
+            interval_summary += f' | Founder said: "{speech}"'
+        else:
+            interval_summary += " | [silence]"
+
+        emotion_trajectory.append(interval_summary)
+
+    # Get emotion shifts and patterns
+    emotion_shifts = patterns.get("emotion_shifts", [])
+    shift_text = ""
+    if emotion_shifts:
+        recent_shift = emotion_shifts[-1]
+        shift_emotions = ", ".join([
+            f"{e['name']} ({e['trend']})"
+            for e in recent_shift.get('emotions', [])
+        ])
+        shift_text = f"\nEmotion shift detected: {shift_emotions}"
+
+    # Build prompt
+    trajectory_text = "\n".join(emotion_trajectory)
+
+    prompt = f"""Investor Emotion Analysis (last 4 seconds, 4 intervals oldest→newest):
+
+{trajectory_text}{shift_text}
+
+Based on this emotion trajectory, provide ONE tactical coaching move (max 15 words):"""
+
+    # DEBUG: Log the complete prompt being sent to OpenAI
+    logger.info("=" * 60)
+    logger.info("PROMPT SENT TO OPENAI:")
+    logger.info(prompt)
+    logger.info("=" * 60)
+
+    return prompt
+
+
+# Emotion state to emoji mapping
+INVESTOR_STATE_EMOJI = {
+    "skeptical": "🔴",
+    "evaluative": "🟡",
+    "receptive": "🟢",
+    "positive": "🟢",
+    "neutral": "⚪"
+}
+
+# Emotion state to color mapping (for frontend)
+INVESTOR_STATE_COLOR = {
+    "skeptical": "#ef4444",      # red-500
+    "evaluative": "#eab308",     # yellow-500
+    "receptive": "#22c55e",      # green-500
+    "positive": "#10b981",       # emerald-500
+    "neutral": "#9ca3af"         # gray-400
+}
+
+
+# ============================================================================
+# GENERAL COMMUNICATION COACH (legacy/alternative)
+# ============================================================================
+
+# Load from config for easy customization
+SYSTEM_PROMPT = settings.general_coach_system_prompt
 
 
 def build_user_prompt(parameters: dict) -> str:
@@ -51,44 +135,16 @@ Provide ONE specific coaching tip (max 20 words)."""
     return prompt
 
 
-def determine_focus_area(emotion: str, wpm: int, filler_count: int, pause_freq: float) -> str:
-    """Determine what to focus advice on"""
-
-    # Priority order: 1) pacing, 2) emotional tone, 3) clarity
-
-    # Check pacing issues
-    if wpm > 160:
-        return "pacing - speaking too fast"
-    elif wpm < 100 and wpm > 0:
-        return "pacing - speaking too slowly"
-    elif pause_freq < 0.1:
-        return "pacing - not enough pauses"
-
-    # Check emotional tone
-    if emotion == "concerned":
-        return "emotional_tone - projecting concern"
-    elif emotion == "disengaged":
-        return "emotional_tone - appearing disengaged"
-
-    # Check clarity
-    if filler_count > 8:
-        return "clarity - too many filler words"
-
-    # Default: general pacing
-    return "pacing - speech delivery"
-
-
-def get_fallback_advice(focus: str) -> str:
-    """Get fallback advice when API fails"""
-
-    fallback_map = {
-        "pacing - speaking too fast": "Slow down to 140 words per minute. Pause between key points.",
-        "pacing - speaking too slowly": "Increase your pace slightly. Aim for 140 words per minute.",
-        "pacing - not enough pauses": "Add more pauses. Breathe between sentences.",
-        "emotional_tone - projecting concern": "Take a breath. Project confidence - say 'we'll find a way.'",
-        "emotional_tone - appearing disengaged": "Show engagement. Lean forward slightly and maintain eye contact.",
-        "clarity - too many filler words": "Reduce filler words. Pause instead of saying 'um.'",
-        "pacing - speech delivery": "Maintain steady pace at 140 WPM with natural pauses."
-    }
-
-    return fallback_map.get(focus, "Speak clearly at a steady pace with confidence.")
+# ============================================================================
+# DEPRECATED: Fallback advice functions (no longer used - LLM only)
+# ============================================================================
+#
+# def determine_focus_area(emotion: str, wpm: int, filler_count: int, pause_freq: float) -> str:
+#     """Determine what to focus advice on"""
+#     # REMOVED: No longer using hardcoded fallbacks
+#     pass
+#
+# def get_fallback_advice(focus: str) -> str:
+#     """Get fallback advice when API fails"""
+#     # REMOVED: No longer using hardcoded fallbacks - LLM calls are required
+#     pass

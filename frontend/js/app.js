@@ -5,10 +5,27 @@
 class BeneAI {
     constructor() {
         this.videoProcessor = new VideoProcessor();
-        this.audioAnalyzer = new AudioAnalyzer();
+        this.audioCapture = new AudioCapture();  // NEW: Deepgram-based audio capture
         this.wsClient = new WebSocketClient();
         this.isRunning = false;
         this.updateInterval = null;
+
+        // Store latest emotion data from Hume AI
+        this.latestEmotion = {
+            investorState: 'neutral',
+            primaryEmotion: 'neutral',
+            confidence: 0,
+            allEmotions: {}
+        };
+
+        // Data collection tracking
+        this.dataStats = {
+            framesSent: 0,
+            emotionsReceived: 0,
+            intervalsReceived: 0,
+            coachingAdviceReceived: 0,
+            audioChunksSent: 0  // NEW: Track audio chunks
+        };
 
         // UI Elements
         this.elements = {
@@ -23,7 +40,8 @@ class BeneAI {
             pauseFreq: document.getElementById('pause-freq'),
             adviceContent: document.getElementById('advice-content'),
             webcam: document.getElementById('webcam'),
-            outputCanvas: document.getElementById('output-canvas')
+            outputCanvas: document.getElementById('output-canvas'),
+            debugLog: document.getElementById('debug-log')
         };
 
         this.initializeUI();
@@ -61,10 +79,10 @@ class BeneAI {
                 this.elements.outputCanvas
             );
 
-            // Initialize audio analyzer
-            const audioReady = await this.audioAnalyzer.initialize();
+            // Initialize audio capture (Deepgram)
+            const audioReady = await this.audioCapture.initialize();
             if (!audioReady) {
-                throw new Error('Failed to initialize audio');
+                throw new Error('Failed to initialize audio capture');
             }
 
             // Connect to backend
@@ -79,10 +97,31 @@ class BeneAI {
             this.videoProcessor.onFrameCapture((frameData) => {
                 // Send frame to backend via WebSocket
                 this.wsClient.sendVideoFrame(frameData);
+                this.dataStats.framesSent++;
+                this.logDataCollection('Frame sent', { count: this.dataStats.framesSent });
             });
 
             // Set up emotion result callback from backend
             this.wsClient.onEmotion((emotionResult) => {
+                this.dataStats.emotionsReceived++;
+
+                // Store latest emotion data
+                if (emotionResult.detected) {
+                    this.latestEmotion = {
+                        investorState: emotionResult.investor_state || 'neutral',
+                        primaryEmotion: emotionResult.emotion || 'neutral',
+                        confidence: emotionResult.confidence || 0,
+                        allEmotions: emotionResult.all_emotions || {}
+                    };
+
+                    this.logDataCollection('Emotion received', {
+                        state: this.latestEmotion.investorState,
+                        emotion: this.latestEmotion.primaryEmotion,
+                        confidence: this.latestEmotion.confidence.toFixed(2),
+                        count: this.dataStats.emotionsReceived
+                    });
+                }
+
                 this.updateEmotionUI(emotionResult);
 
                 // Optional: Draw overlay on canvas
@@ -91,9 +130,44 @@ class BeneAI {
                 }
             });
 
-            // Start audio analysis
-            this.elements.statusText.textContent = 'Starting audio analysis...';
-            this.audioAnalyzer.start();
+            // Set up interval completion callback
+            this.wsClient.onInterval((intervalData) => {
+                this.dataStats.intervalsReceived++;
+                this.logDataCollection('Interval complete', {
+                    state: intervalData.investor_state,
+                    words: intervalData.words ? intervalData.words.length : 0,
+                    count: this.dataStats.intervalsReceived
+                });
+            });
+
+            // Set up coaching advice callback
+            this.wsClient.onCoaching((coachingData) => {
+                this.dataStats.coachingAdviceReceived++;
+                this.logDataCollection('Coaching advice', {
+                    advice: coachingData.coaching_advice,
+                    state: coachingData.investor_state,
+                    count: this.dataStats.coachingAdviceReceived
+                });
+
+                // Update UI with coaching advice
+                if (this.elements.adviceContent) {
+                    this.elements.adviceContent.textContent = coachingData.coaching_advice;
+                }
+            });
+
+            // Start audio capture with callback
+            this.elements.statusText.textContent = 'Starting audio capture...';
+            this.audioCapture.start((audioData) => {
+                // Send audio chunk to backend via WebSocket
+                this.wsClient.sendAudioChunk(audioData);
+                this.dataStats.audioChunksSent++;
+                this.logDataCollection('Audio chunk sent', {
+                    chunk: audioData.chunkNumber,
+                    size: audioData.size,
+                    duration: audioData.duration,
+                    total: this.dataStats.audioChunksSent
+                });
+            });
 
             // Start periodic updates
             this.startPeriodicUpdates();
@@ -131,7 +205,7 @@ class BeneAI {
 
         // Stop components
         this.videoProcessor.stop();
-        this.audioAnalyzer.stop();
+        this.audioCapture.stop();
         this.wsClient.disconnect();
 
         // Update UI
@@ -150,22 +224,49 @@ class BeneAI {
         this.updateInterval = setInterval(() => {
             if (!this.isRunning) return;
 
-            // Get current metrics
-            const speechMetrics = this.audioAnalyzer.getMetrics();
-            const emotion = {
-                emotion: this.videoProcessor.emotionDetector.currentEmotion,
-                confidence: this.videoProcessor.emotionDetector.confidence
-            };
+            // Note: Audio chunks are sent automatically every 2 seconds via AudioCapture callback
+            // Speech metrics (WPM, filler words) will come from Deepgram transcription in backend
+            // This interval is mainly for UI updates now
 
-            // Update speech UI
-            this.updateSpeechUI(speechMetrics);
-
-            // Send to backend
-            this.wsClient.sendParameters(emotion, speechMetrics);
+            // Update audio capture metrics in UI
+            const captureMetrics = this.audioCapture.getMetrics();
+            debug(`Audio capture: ${captureMetrics.chunksProcessed} chunks, ${captureMetrics.totalDuration}s`);
 
         }, CONFIG.PROCESSING.updateInterval);
 
         debug('Periodic updates started');
+    }
+
+    /**
+     * Log data collection to debug panel
+     */
+    logDataCollection(event, data) {
+        const timestamp = new Date().toLocaleTimeString();
+        const logEntry = `[${timestamp}] ${event}: ${JSON.stringify(data)}`;
+
+        console.log(`📊 ${logEntry}`);
+
+        // Update debug panel if it exists
+        if (this.elements.debugLog) {
+            const entry = document.createElement('div');
+            entry.className = 'debug-entry';
+            entry.textContent = logEntry;
+            this.elements.debugLog.insertBefore(entry, this.elements.debugLog.firstChild);
+
+            // Keep only last 20 entries
+            while (this.elements.debugLog.children.length > 20) {
+                this.elements.debugLog.removeChild(this.elements.debugLog.lastChild);
+            }
+        }
+
+        // Update status text with stats
+        if (this.elements.statusText && this.isRunning) {
+            this.elements.statusText.textContent =
+                `Active - Frames:${this.dataStats.framesSent} | ` +
+                `Emotions:${this.dataStats.emotionsReceived} | ` +
+                `Intervals:${this.dataStats.intervalsReceived} | ` +
+                `Advice:${this.dataStats.coachingAdviceReceived}`;
+        }
     }
 
     /**
@@ -194,30 +295,15 @@ class BeneAI {
         // Update confidence bar
         this.elements.emotionConfidence.style.width = `${confidence * 100}%`;
 
-        // Optional: Add coaching suggestions based on investor state
-        this.updateCoachingSuggestion(investorState, confidence);
+        // Coaching advice comes from LLM via WebSocket (no hardcoded suggestions)
     }
 
     /**
-     * Update coaching suggestion overlay based on investor state
+     * REMOVED: updateCoachingSuggestion (hardcoded advice)
+     *
+     * Coaching advice now comes exclusively from LLM (GPT-4) via WebSocket.
+     * See onCoaching callback in start() method for LLM advice handling.
      */
-    updateCoachingSuggestion(investorState, confidence) {
-        // Map investor states to coaching suggestions for demo
-        const suggestions = {
-            'skeptical': '🔴 Investor seems doubtful. Focus on confident posture & clear tone.',
-            'evaluative': '🟡 Investor is thinking. Slow down, articulate key wins concisely.',
-            'receptive': '🟢 Investor is receptive. Maintain steady tone & confident eye contact.',
-            'positive': '🟢 Investor is engaged! Continue with confidence.',
-            'neutral': '⚪ Maintain professional demeanor.'
-        };
-
-        const suggestion = suggestions[investorState] || suggestions['neutral'];
-
-        // Update advice if available
-        if (confidence > 0.3) {
-            this.elements.adviceContent.textContent = suggestion;
-        }
-    }
 
     /**
      * Update speech metrics UI

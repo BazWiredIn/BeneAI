@@ -22,6 +22,12 @@ class AudioAnalyzer {
         // Buffers
         this.transcriptBuffer = [];
         this.volumeBuffer = [];
+
+        // Error handling with exponential backoff
+        this.restartAttempts = 0;
+        this.maxRestartAttempts = 3;
+        this.restartDelay = 1000; // Start with 1 second
+        this.speechAvailable = true; // Track if speech recognition is available
     }
 
     /**
@@ -67,6 +73,13 @@ class AudioAnalyzer {
         this.recognition.interimResults = CONFIG.SPEECH.interimResults;
         this.recognition.maxAlternatives = CONFIG.SPEECH.maxAlternatives;
 
+        this.recognition.onstart = () => {
+            // Reset restart attempts on successful start
+            this.restartAttempts = 0;
+            this.speechAvailable = true;
+            debug('Speech recognition started successfully');
+        };
+
         this.recognition.onresult = (event) => {
             const last = event.results.length - 1;
             const text = event.results[last][0].transcript;
@@ -89,12 +102,47 @@ class AudioAnalyzer {
 
         this.recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
+
+            // Handle network errors with backoff
+            if (event.error === 'network') {
+                this.restartAttempts++;
+                console.warn(`Speech recognition network error (attempt ${this.restartAttempts}/${this.maxRestartAttempts})`);
+
+                if (this.restartAttempts >= this.maxRestartAttempts) {
+                    this.isListening = false;
+                    this.speechAvailable = false;
+                    console.warn('⚠️ Speech recognition unavailable after multiple attempts. Continuing with emotion-only analysis.');
+                    debug('Speech recognition disabled due to repeated network errors');
+                }
+            }
+            // Handle other errors that should stop recognition
+            else if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                this.isListening = false;
+                this.speechAvailable = false;
+                console.error('Speech recognition not allowed. Please check microphone permissions.');
+            }
         };
 
         this.recognition.onend = () => {
-            // Auto-restart if still listening
-            if (this.isListening) {
-                this.recognition.start();
+            // Auto-restart with exponential backoff if still listening
+            if (this.isListening && this.speechAvailable) {
+                if (this.restartAttempts < this.maxRestartAttempts) {
+                    // Calculate exponential backoff delay
+                    const delay = this.restartDelay * Math.pow(2, this.restartAttempts);
+                    debug(`Restarting speech recognition in ${delay}ms (attempt ${this.restartAttempts + 1})`);
+
+                    setTimeout(() => {
+                        if (this.isListening) {
+                            try {
+                                this.recognition.start();
+                            } catch (error) {
+                                console.error('Failed to restart speech recognition:', error);
+                            }
+                        }
+                    }, delay);
+                } else {
+                    debug('Speech recognition not restarting (max attempts reached)');
+                }
             }
         };
     }

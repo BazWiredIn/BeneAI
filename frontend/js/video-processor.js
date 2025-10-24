@@ -57,9 +57,9 @@ class VideoProcessor {
 
         this.isProcessing = true;
 
-        // Start capturing frames at configured rate (3-5 FPS)
-        const captureRate = CONFIG.PROCESSING.frameSkip ?
-            1000 / (30 / CONFIG.PROCESSING.frameSkip) :
+        // Start capturing frames at configured rate (exactly 3 FPS)
+        const captureRate = CONFIG.PROCESSING.targetFPS ?
+            1000 / CONFIG.PROCESSING.targetFPS :
             333; // ~3 FPS default
 
         this.captureInterval = setInterval(() => {

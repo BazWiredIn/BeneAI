@@ -1,0 +1,1344 @@
+{
+  "metadata": {
+    "session_start": 1761288125.013633,
+    "session_id": "session_1761288125",
+    "client_id": "35f40185-703d-46f1-bb34-e546fa5094af"
+  },
+  "emotions": [
+    {
+      "timestamp": 1761288125.3563662,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.4806274175643921,
+      "top_emotions": [
+        {
+          "name": "Concentration",
+          "score": 0.4806274175643921
+        },
+        {
+          "name": "Confusion",
+          "score": 0.44778797030448914
+        },
+        {
+          "name": "Calmness",
+          "score": 0.41924574971199036
+        },
+        {
+          "name": "Boredom",
+          "score": 0.41451701521873474
+        },
+        {
+          "name": "Doubt",
+          "score": 0.3292992115020752
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288126.8147671,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.5052271485328674,
+      "top_emotions": [
+        {
+          "name": "Concentration",
+          "score": 0.5052271485328674
+        },
+        {
+          "name": "Confusion",
+          "score": 0.48409613966941833
+        },
+        {
+          "name": "Calmness",
+          "score": 0.40039145946502686
+        },
+        {
+          "name": "Interest",
+          "score": 0.38404110074043274
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3582915961742401
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288128.353135,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.30421867966651917,
+      "top_emotions": [
+        {
+          "name": "Interest",
+          "score": 0.40611928701400757
+        },
+        {
+          "name": "Calmness",
+          "score": 0.40554577112197876
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3691464960575104
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3465086817741394
+        },
+        {
+          "name": "Amusement",
+          "score": 0.30421867966651917
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288129.769928,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.3816344738006592,
+      "top_emotions": [
+        {
+          "name": "Amusement",
+          "score": 0.3816344738006592
+        },
+        {
+          "name": "Joy",
+          "score": 0.37782299518585205
+        },
+        {
+          "name": "Calmness",
+          "score": 0.355742484331131
+        },
+        {
+          "name": "Interest",
+          "score": 0.34255918860435486
+        },
+        {
+          "name": "Confusion",
+          "score": 0.29350292682647705
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288131.230059,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.4126788079738617,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.4126788079738617
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3267229497432709
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3229197859764099
+        },
+        {
+          "name": "Interest",
+          "score": 0.3034808039665222
+        },
+        {
+          "name": "Awe",
+          "score": 0.29443275928497314
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288132.6518772,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.2939894199371338,
+      "top_emotions": [
+        {
+          "name": "Tiredness",
+          "score": 0.4419029951095581
+        },
+        {
+          "name": "Boredom",
+          "score": 0.42351290583610535
+        },
+        {
+          "name": "Calmness",
+          "score": 0.4152398109436035
+        },
+        {
+          "name": "Concentration",
+          "score": 0.2939894199371338
+        },
+        {
+          "name": "Confusion",
+          "score": 0.29023075103759766
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288134.1420548,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.427985817193985,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.427985817193985
+        },
+        {
+          "name": "Concentration",
+          "score": 0.39083248376846313
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3803187608718872
+        },
+        {
+          "name": "Calmness",
+          "score": 0.36992987990379333
+        },
+        {
+          "name": "Interest",
+          "score": 0.3090696334838867
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288135.5349052,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.2425500899553299,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.5254865884780884
+        },
+        {
+          "name": "Boredom",
+          "score": 0.40738216042518616
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3980752229690552
+        },
+        {
+          "name": "Interest",
+          "score": 0.3647021949291229
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3160460591316223
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288138.269005,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.4237927794456482,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.4627562165260315
+        },
+        {
+          "name": "Concentration",
+          "score": 0.4237927794456482
+        },
+        {
+          "name": "Confusion",
+          "score": 0.40200862288475037
+        },
+        {
+          "name": "Boredom",
+          "score": 0.390636682510376
+        },
+        {
+          "name": "Interest",
+          "score": 0.3377020061016083
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288139.745831,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.4626084566116333,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.49233993887901306
+        },
+        {
+          "name": "Boredom",
+          "score": 0.47186264395713806
+        },
+        {
+          "name": "Concentration",
+          "score": 0.4626084566116333
+        },
+        {
+          "name": "Confusion",
+          "score": 0.42614978551864624
+        },
+        {
+          "name": "Doubt",
+          "score": 0.3207610845565796
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288143.282681,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.476561963558197,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.476561963558197
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3436747193336487
+        },
+        {
+          "name": "Boredom",
+          "score": 0.32300296425819397
+        },
+        {
+          "name": "Calmness",
+          "score": 0.31811028718948364
+        },
+        {
+          "name": "Interest",
+          "score": 0.30864718556404114
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288144.838743,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.44965991377830505,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.4640956223011017
+        },
+        {
+          "name": "Confusion",
+          "score": 0.44965991377830505
+        },
+        {
+          "name": "Concentration",
+          "score": 0.44855576753616333
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3871949315071106
+        },
+        {
+          "name": "Interest",
+          "score": 0.35057333111763
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288147.0001862,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.4229181110858917,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.4629756808280945
+        },
+        {
+          "name": "Concentration",
+          "score": 0.4229181110858917
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3977140188217163
+        },
+        {
+          "name": "Boredom",
+          "score": 0.362212598323822
+        },
+        {
+          "name": "Interest",
+          "score": 0.34715861082077026
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288148.522708,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.422048419713974,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.49235475063323975
+        },
+        {
+          "name": "Concentration",
+          "score": 0.422048419713974
+        },
+        {
+          "name": "Boredom",
+          "score": 0.37729743123054504
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3672967255115509
+        },
+        {
+          "name": "Interest",
+          "score": 0.36050766706466675
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288149.961102,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.4657089412212372,
+      "top_emotions": [
+        {
+          "name": "Amusement",
+          "score": 0.4657089412212372
+        },
+        {
+          "name": "Joy",
+          "score": 0.4641893208026886
+        },
+        {
+          "name": "Interest",
+          "score": 0.45096907019615173
+        },
+        {
+          "name": "Calmness",
+          "score": 0.30872783064842224
+        },
+        {
+          "name": "Excitement",
+          "score": 0.29178622364997864
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288151.491762,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.4410497546195984,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.4410497546195984
+        },
+        {
+          "name": "Interest",
+          "score": 0.4306723475456238
+        },
+        {
+          "name": "Concentration",
+          "score": 0.4306049644947052
+        },
+        {
+          "name": "Calmness",
+          "score": 0.39547330141067505
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3095718026161194
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288153.856842,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.5258450508117676,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.5258450508117676
+        },
+        {
+          "name": "Amusement",
+          "score": 0.5253450870513916
+        },
+        {
+          "name": "Interest",
+          "score": 0.4210059642791748
+        },
+        {
+          "name": "Excitement",
+          "score": 0.32420864701271057
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.3156296908855438
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288155.28327,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.3442419469356537,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.5984895825386047
+        },
+        {
+          "name": "Interest",
+          "score": 0.4461236298084259
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3858419358730316
+        },
+        {
+          "name": "Amusement",
+          "score": 0.3442419469356537
+        },
+        {
+          "name": "Boredom",
+          "score": 0.34337368607521057
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288157.548932,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.4225445091724396,
+      "top_emotions": [
+        {
+          "name": "Interest",
+          "score": 0.4771060049533844
+        },
+        {
+          "name": "Amusement",
+          "score": 0.4225445091724396
+        },
+        {
+          "name": "Joy",
+          "score": 0.37315255403518677
+        },
+        {
+          "name": "Calmness",
+          "score": 0.35864123702049255
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3380240201950073
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288158.9720871,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.2834165096282959,
+      "top_emotions": [
+        {
+          "name": "Interest",
+          "score": 0.4199206233024597
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3907145857810974
+        },
+        {
+          "name": "Concentration",
+          "score": 0.37399566173553467
+        },
+        {
+          "name": "Calmness",
+          "score": 0.36232757568359375
+        },
+        {
+          "name": "Boredom",
+          "score": 0.29218339920043945
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288160.6154659,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.2491154968738556,
+      "top_emotions": [
+        {
+          "name": "Awe",
+          "score": 0.3990192115306854
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3745374381542206
+        },
+        {
+          "name": "Surprise (positive)",
+          "score": 0.3677224814891815
+        },
+        {
+          "name": "Interest",
+          "score": 0.2935802638530731
+        },
+        {
+          "name": "Surprise (negative)",
+          "score": 0.2856868803501129
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761288162.0393221,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.4349282681941986,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.4349282681941986
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3289973735809326
+        },
+        {
+          "name": "Concentration",
+          "score": 0.32441824674606323
+        },
+        {
+          "name": "Interest",
+          "score": 0.3019619584083557
+        },
+        {
+          "name": "Doubt",
+          "score": 0.28365379571914673
+        }
+      ],
+      "face_detected": true
+    }
+  ],
+  "intervals": [
+    {
+      "interval_number": 1,
+      "timestamp": 1761288125.8563662,
+      "interval_start": 1761288125.3563662,
+      "interval_end": 1761288126.8147671,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Concentration",
+          "avg_score": 0.493,
+          "trend": "stable"
+        },
+        {
+          "name": "Confusion",
+          "avg_score": 0.466,
+          "trend": "stable"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.41,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 2,
+      "timestamp": 1761288128.853135,
+      "interval_start": 1761288128.353135,
+      "interval_end": 1761288129.769928,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.381,
+          "trend": "stable"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.374,
+          "trend": "new"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.343,
+          "trend": "new"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": true,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 3,
+      "timestamp": 1761288131.730059,
+      "interval_start": 1761288131.230059,
+      "interval_end": 1761288132.6518772,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Boredom",
+          "avg_score": 0.375,
+          "trend": "new"
+        },
+        {
+          "name": "Confusion",
+          "avg_score": 0.351,
+          "trend": "new"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.349,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": true,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 4,
+      "timestamp": 1761288134.6420548,
+      "interval_start": 1761288134.1420548,
+      "interval_end": 1761288135.5349052,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.448,
+          "trend": "increasing"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.394,
+          "trend": "new"
+        },
+        {
+          "name": "Boredom",
+          "avg_score": 0.394,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 5,
+      "timestamp": 1761288138.769005,
+      "interval_start": 1761288138.269005,
+      "interval_end": 1761288139.745831,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.478,
+          "trend": "stable"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.443,
+          "trend": "stable"
+        },
+        {
+          "name": "Boredom",
+          "avg_score": 0.431,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 6,
+      "timestamp": 1761288143.782681,
+      "interval_start": 1761288143.282681,
+      "interval_end": 1761288144.838743,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "avg_score": 0.463,
+          "trend": "new"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.396,
+          "trend": "stable"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.391,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 7,
+      "timestamp": 1761288147.5001862,
+      "interval_start": 1761288147.0001862,
+      "interval_end": 1761288148.522708,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.478,
+          "trend": "increasing"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.422,
+          "trend": "stable"
+        },
+        {
+          "name": "Confusion",
+          "avg_score": 0.383,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 8,
+      "timestamp": 1761288150.461102,
+      "interval_start": 1761288149.961102,
+      "interval_end": 1761288151.491762,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Interest",
+          "avg_score": 0.441,
+          "trend": "new"
+        },
+        {
+          "name": "Confusion",
+          "avg_score": 0.357,
+          "trend": "stable"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.352,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": true,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 9,
+      "timestamp": 1761288154.356842,
+      "interval_start": 1761288153.856842,
+      "interval_end": 1761288155.28327,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.45,
+          "trend": "increasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.435,
+          "trend": "new"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.434,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 10,
+      "timestamp": 1761288158.048932,
+      "interval_start": 1761288157.548932,
+      "interval_end": 1761288158.9720871,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Interest",
+          "avg_score": 0.449,
+          "trend": "stable"
+        },
+        {
+          "name": "Confusion",
+          "avg_score": 0.364,
+          "trend": "new"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.36,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 11,
+      "timestamp": 1761288161.1154659,
+      "interval_start": 1761288160.6154659,
+      "interval_end": 1761288162.0393221,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "avg_score": 0.405,
+          "trend": "stable"
+        },
+        {
+          "name": "Awe",
+          "avg_score": 0.324,
+          "trend": "new"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.298,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    }
+  ],
+  "llm_updates": [
+    {
+      "update_number": 1,
+      "timestamp": 1761288138.2670069,
+      "context": {
+        "time_window": {
+          "duration_seconds": 10.2,
+          "interval_count": 4,
+          "start_time": 1761288125.3563662,
+          "end_time": 1761288135.5349052
+        },
+        "summary": {
+          "dominant_state": "evaluative",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Concentration": "decreasing",
+            "Confusion": "decreasing",
+            "Calmness": "stable",
+            "Interest": "stable",
+            "Amusement": "stable",
+            "Boredom": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [
+            {
+              "from_state": "evaluative",
+              "to_state": "positive",
+              "timestamp": 1761288128.853135,
+              "text_context": ""
+            },
+            {
+              "from_state": "positive",
+              "to_state": "evaluative",
+              "timestamp": 1761288131.730059,
+              "text_context": ""
+            }
+          ],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288125.8563662,
+              "end_timestamp": 1761288134.6420548,
+              "duration": 4.0,
+              "emotion_during_silence": "evaluative"
+            }
+          ],
+          "engagement_trend": "decreasing"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: EVALUATIVE\nEngagement Trend: decreasing\nWords Spoken: 0\n\nState Transitions:\n  \u2022 evaluative \u2192 positive at 1761288128.853135s\n  \u2022 positive \u2192 evaluative at 1761288131.730059s\n\nSilence Periods:\n  \u2022 4.0s silence (evaluative state)\n\nInterval Timeline:\n\n[1761288125.9s] EVALUATIVE\n  Emotions: Concentration(0.49), Confusion(0.47)\n  Said: \"[silence]\"\n\n[1761288128.9s] POSITIVE\n  Emotions: Calmness(0.38), Interest(0.37)\n  Said: \"[silence]\"\n\n[1761288131.7s] EVALUATIVE\n  Emotions: Boredom(0.38), Confusion(0.35)\n  Said: \"[silence]\"\n\n[1761288134.6s] EVALUATIVE\n  Emotions: Calmness(0.45), Concentration(0.39)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Increase clarity by summarizing your key wins in a compelling way. Maintain steady pacing.",
+      "dominant_state": "evaluative",
+      "total_words": 0,
+      "engagement_trend": "decreasing"
+    },
+    {
+      "update_number": 2,
+      "timestamp": 1761288143.278948,
+      "context": {
+        "time_window": {
+          "duration_seconds": 11.4,
+          "interval_count": 4,
+          "start_time": 1761288128.353135,
+          "end_time": 1761288139.745831
+        },
+        "summary": {
+          "dominant_state": "evaluative",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Calmness": "increasing",
+            "Interest": "stable",
+            "Amusement": "stable",
+            "Boredom": "stable",
+            "Confusion": "stable",
+            "Concentration": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [
+            {
+              "from_state": "positive",
+              "to_state": "evaluative",
+              "timestamp": 1761288131.730059,
+              "text_context": ""
+            }
+          ],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288128.853135,
+              "end_timestamp": 1761288138.769005,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "decreasing"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: EVALUATIVE\nEngagement Trend: decreasing\nWords Spoken: 0\n\nState Transitions:\n  \u2022 positive \u2192 evaluative at 1761288131.730059s\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761288128.9s] POSITIVE\n  Emotions: Calmness(0.38), Interest(0.37)\n  Said: \"[silence]\"\n\n[1761288131.7s] EVALUATIVE\n  Emotions: Boredom(0.38), Confusion(0.35)\n  Said: \"[silence]\"\n\n[1761288134.6s] EVALUATIVE\n  Emotions: Calmness(0.45), Concentration(0.39)\n  Said: \"[silence]\"\n\n[1761288138.8s] EVALUATIVE\n  Emotions: Calmness(0.48), Concentration(0.44)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Increase pacing to re-engage. Highlight key wins to spark interest and clarity.",
+      "dominant_state": "evaluative",
+      "total_words": 0,
+      "engagement_trend": "decreasing"
+    },
+    {
+      "update_number": 3,
+      "timestamp": 1761288146.992379,
+      "context": {
+        "time_window": {
+          "duration_seconds": 13.6,
+          "interval_count": 4,
+          "start_time": 1761288131.230059,
+          "end_time": 1761288144.838743
+        },
+        "summary": {
+          "dominant_state": "evaluative",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Boredom": "stable",
+            "Confusion": "increasing",
+            "Calmness": "stable",
+            "Concentration": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288131.730059,
+              "end_timestamp": 1761288143.782681,
+              "duration": 4.0,
+              "emotion_during_silence": "evaluative"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: EVALUATIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (evaluative state)\n\nInterval Timeline:\n\n[1761288131.7s] EVALUATIVE\n  Emotions: Boredom(0.38), Confusion(0.35)\n  Said: \"[silence]\"\n\n[1761288134.6s] EVALUATIVE\n  Emotions: Calmness(0.45), Concentration(0.39)\n  Said: \"[silence]\"\n\n[1761288138.8s] EVALUATIVE\n  Emotions: Calmness(0.48), Concentration(0.44)\n  Said: \"[silence]\"\n\n[1761288143.8s] EVALUATIVE\n  Emotions: Confusion(0.46), Concentration(0.4)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Speak clearly and emphasize key wins to clarify your value proposition.",
+      "dominant_state": "evaluative",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 4,
+      "timestamp": 1761288153.852334,
+      "context": {
+        "time_window": {
+          "duration_seconds": 13.2,
+          "interval_count": 4,
+          "start_time": 1761288138.269005,
+          "end_time": 1761288151.491762
+        },
+        "summary": {
+          "dominant_state": "evaluative",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Calmness": "stable",
+            "Concentration": "stable",
+            "Boredom": "stable",
+            "Confusion": "decreasing",
+            "Interest": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [
+            {
+              "from_state": "evaluative",
+              "to_state": "positive",
+              "timestamp": 1761288150.461102,
+              "text_context": ""
+            }
+          ],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288138.769005,
+              "end_timestamp": 1761288150.461102,
+              "duration": 4.0,
+              "emotion_during_silence": "evaluative"
+            }
+          ],
+          "engagement_trend": "increasing"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: EVALUATIVE\nEngagement Trend: increasing\nWords Spoken: 0\n\nState Transitions:\n  \u2022 evaluative \u2192 positive at 1761288150.461102s\n\nSilence Periods:\n  \u2022 4.0s silence (evaluative state)\n\nInterval Timeline:\n\n[1761288138.8s] EVALUATIVE\n  Emotions: Calmness(0.48), Concentration(0.44)\n  Said: \"[silence]\"\n\n[1761288143.8s] EVALUATIVE\n  Emotions: Confusion(0.46), Concentration(0.4)\n  Said: \"[silence]\"\n\n[1761288147.5s] EVALUATIVE\n  Emotions: Calmness(0.48), Concentration(0.42)\n  Said: \"[silence]\"\n\n[1761288150.5s] POSITIVE\n  Emotions: Interest(0.44), Confusion(0.36)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Speak clearly and highlight your key wins to maintain their interest and clarity.",
+      "dominant_state": "evaluative",
+      "total_words": 0,
+      "engagement_trend": "increasing"
+    },
+    {
+      "update_number": 5,
+      "timestamp": 1761288157.539427,
+      "context": {
+        "time_window": {
+          "duration_seconds": 12.0,
+          "interval_count": 4,
+          "start_time": 1761288143.282681,
+          "end_time": 1761288155.28327
+        },
+        "summary": {
+          "dominant_state": "evaluative",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Confusion": "decreasing",
+            "Concentration": "stable",
+            "Calmness": "stable",
+            "Interest": "stable",
+            "Amusement": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [
+            {
+              "from_state": "evaluative",
+              "to_state": "positive",
+              "timestamp": 1761288150.461102,
+              "text_context": ""
+            }
+          ],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288143.782681,
+              "end_timestamp": 1761288154.356842,
+              "duration": 4.0,
+              "emotion_during_silence": "evaluative"
+            }
+          ],
+          "engagement_trend": "increasing"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: EVALUATIVE\nEngagement Trend: increasing\nWords Spoken: 0\n\nState Transitions:\n  \u2022 evaluative \u2192 positive at 1761288150.461102s\n\nSilence Periods:\n  \u2022 4.0s silence (evaluative state)\n\nInterval Timeline:\n\n[1761288143.8s] EVALUATIVE\n  Emotions: Confusion(0.46), Concentration(0.4)\n  Said: \"[silence]\"\n\n[1761288147.5s] EVALUATIVE\n  Emotions: Calmness(0.48), Concentration(0.42)\n  Said: \"[silence]\"\n\n[1761288150.5s] POSITIVE\n  Emotions: Interest(0.44), Confusion(0.36)\n  Said: \"[silence]\"\n\n[1761288154.4s] POSITIVE\n  Emotions: Calmness(0.45), Amusement(0.43)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Speak clearly about your key wins and future vision. Maintain steady pacing.",
+      "dominant_state": "evaluative",
+      "total_words": 0,
+      "engagement_trend": "increasing"
+    },
+    {
+      "update_number": 6,
+      "timestamp": 1761288164.298534,
+      "context": {
+        "time_window": {
+          "duration_seconds": 12.1,
+          "interval_count": 4,
+          "start_time": 1761288149.961102,
+          "end_time": 1761288162.0393221
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Interest": "decreasing",
+            "Confusion": "stable",
+            "Calmness": "increasing",
+            "Amusement": "stable",
+            "Awe": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761288150.461102,
+              "end_timestamp": 1761288161.1154659,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": true,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761288150.5s] POSITIVE\n  Emotions: Interest(0.44), Confusion(0.36)\n  Said: \"[silence]\"\n\n[1761288154.4s] POSITIVE\n  Emotions: Calmness(0.45), Amusement(0.43)\n  Said: \"[silence]\"\n\n[1761288158.0s] POSITIVE\n  Emotions: Interest(0.45), Confusion(0.36)\n  Said: \"[silence]\"\n\n[1761288161.1s] POSITIVE\n  Emotions: Confusion(0.41), Awe(0.32)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Clarify your vision now; use compelling examples to maintain their excitement and momentum.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    }
+  ],
+  "events": []
+}

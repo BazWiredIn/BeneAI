@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeneAI - Founder Coach Overlay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        /* Floating overlay widget - bottom right corner */
+        .overlay-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px;
+            background: rgba(17, 24, 39, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-widget.minimized {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header */
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .minimize-btn {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px 8px;
+        }
+
+        .minimize-btn:hover {
+            color: white;
+        }
+
+        /* Investor State Display */
+        .investor-state {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--state-color, #9ca3af);
+            transition: all 0.5s ease;
+        }
+
+        .state-emoji {
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .state-info {
+            flex: 1;
+        }
+
+        .state-label {
+            font-size: 12px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .state-name {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: var(--state-color, #9ca3af);
+        }
+
+        /* Top Emotions */
+        .emotions-section {
+            margin-bottom: 16px;
+        }
+
+        .emotions-title {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .emotions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .emotion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .emotion-name {
+            color: #d1d5db;
+        }
+
+        .emotion-trend {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        .trend-icon {
+            font-size: 14px;
+        }
+
+        .trend-icon.up { color: #10b981; }
+        .trend-icon.down { color: #ef4444; }
+        .trend-icon.stable { color: #6b7280; }
+
+        /* Coaching Advice */
+        .coaching-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .coaching-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .coaching-advice {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .coaching-placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* Connection Status */
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.disconnected {
+            background: #ef4444;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Minimized state */
+        .minimized .widget-header,
+        .minimized .investor-state,
+        .minimized .emotions-section,
+        .minimized .coaching-section,
+        .minimized .connection-status {
+            display: none;
+        }
+
+        .minimized-content {
+            display: none;
+            text-align: center;
+        }
+
+        .minimized .minimized-content {
+            display: block;
+        }
+
+        .minimized-emoji {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay-widget" id="overlay-widget">
+        <!-- Expanded View -->
+        <div class="widget-header">
+            <div class="widget-title">🤖 BeneAI Coach</div>
+            <button class="minimize-btn" id="minimize-btn" title="Minimize">−</button>
+        </div>
+
+        <div class="investor-state" id="investor-state" style="--state-color: #9ca3af;">
+            <div class="state-emoji" id="state-emoji">⚪</div>
+            <div class="state-info">
+                <div class="state-label">Investor State</div>
+                <div class="state-name" id="state-name">Waiting...</div>
+            </div>
+        </div>
+
+        <div class="emotions-section">
+            <div class="emotions-title">Top Emotions</div>
+            <div class="emotions-list" id="emotions-list">
+                <div class="emotion-item">
+                    <span class="emotion-name">—</span>
+                    <span class="emotion-trend">—</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="coaching-section">
+            <div class="coaching-label">💡 Coaching Advice</div>
+            <div class="coaching-advice" id="coaching-advice">
+                <span class="coaching-placeholder">Analyzing investor signals...</span>
+            </div>
+        </div>
+
+        <div class="connection-status">
+            <div class="status-dot" id="status-dot"></div>
+            <span id="status-text">Connected</span>
+        </div>
+
+        <!-- Minimized View -->
+        <div class="minimized-content">
+            <div class="minimized-emoji" id="minimized-emoji">⚪</div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const BACKEND_URL = 'ws://localhost:8000/ws';
+
+        // WebSocket connection
+        let ws = null;
+        let isConnected = false;
+
+        // UI Elements
+        const widget = document.getElementById('overlay-widget');
+        const minimizeBtn = document.getElementById('minimize-btn');
+        const stateEmoji = document.getElementById('state-emoji');
+        const stateName = document.getElementById('state-name');
+        const investorState = document.getElementById('investor-state');
+        const emotionsList = document.getElementById('emotions-list');
+        const coachingAdvice = document.getElementById('coaching-advice');
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+        const minimizedEmoji = document.getElementById('minimized-emoji');
+
+        // Minimize/Maximize toggle
+        minimizeBtn.addEventListener('click', () => {
+            widget.classList.toggle('minimized');
+            minimizeBtn.textContent = widget.classList.contains('minimized') ? '+' : '−';
+        });
+
+        // Connect to backend
+        function connect() {
+            ws = new WebSocket(BACKEND_URL);
+
+            ws.onopen = () => {
+                console.log('Connected to BeneAI backend');
+                isConnected = true;
+                statusDot.classList.remove('disconnected');
+                statusText.textContent = 'Connected';
+            };
+
+            ws.onmessage = (event) => {
+                const message = JSON.parse(event.data);
+                handleMessage(message);
+            };
+
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+
+            ws.onclose = () => {
+                console.log('Disconnected from backend');
+                isConnected = false;
+                statusDot.classList.add('disconnected');
+                statusText.textContent = 'Disconnected';
+                setTimeout(connect, 3000); // Reconnect after 3s
+            };
+        }
+
+        // Handle incoming messages
+        function handleMessage(message) {
+            console.log('Received:', message.type);
+
+            switch (message.type) {
+                case 'connection':
+                    console.log('Welcome:', message.message);
+                    break;
+
+                case 'interval_complete':
+                    updateIntervalData(message.interval);
+                    break;
+
+                case 'llm_context_update':
+                    updateCoachingAdvice(message);
+                    break;
+
+                case 'emotion_result':
+                    updateEmotionDisplay(message);
+                    break;
+            }
+        }
+
+        // Update interval data (every 1 second)
+        function updateIntervalData(interval) {
+            const topEmotions = interval.top_emotions || [];
+
+            // Update emotions list
+            emotionsList.innerHTML = topEmotions.slice(0, 3).map(emotion => {
+                const trendIcon = getTrendIcon(emotion.trend);
+                const trendClass = emotion.trend === 'increasing' ? 'up' :
+                                   emotion.trend === 'decreasing' ? 'down' : 'stable';
+
+                return `
+                    <div class="emotion-item">
+                        <span class="emotion-name">${emotion.name}</span>
+                        <span class="emotion-trend">
+                            <span>${emotion.ema_score.toFixed(2)}</span>
+                            <span class="trend-icon ${trendClass}">${trendIcon}</span>
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update coaching advice (every 4-5 seconds)
+        function updateCoachingAdvice(data) {
+            const advice = data.coaching_advice;
+            const state = data.investor_state;
+            const emoji = data.state_emoji;
+            const color = data.state_color;
+
+            // Update state
+            stateEmoji.textContent = emoji;
+            minimizedEmoji.textContent = emoji;
+            stateName.textContent = state;
+            investorState.style.setProperty('--state-color', color);
+
+            // Update coaching advice with animation
+            coachingAdvice.classList.remove('coaching-placeholder');
+            coachingAdvice.textContent = advice;
+
+            // Re-trigger animation
+            const coachingSection = coachingAdvice.closest('.coaching-section');
+            coachingSection.style.animation = 'none';
+            setTimeout(() => {
+                coachingSection.style.animation = 'fadeIn 0.5s ease';
+            }, 10);
+        }
+
+        // Update emotion display (for real-time feedback)
+        function updateEmotionDisplay(data) {
+            // Optional: Show real-time emotion changes
+            // (Currently handled by interval_complete)
+        }
+
+        // Helper: Get trend icon
+        function getTrendIcon(trend) {
+            switch (trend) {
+                case 'increasing': return '↑';
+                case 'decreasing': return '↓';
+                case 'stable': return '→';
+                default: return '—';
+            }
+        }
+
+        // Initialize
+        connect();
+    </script>
+</body>
+</html>

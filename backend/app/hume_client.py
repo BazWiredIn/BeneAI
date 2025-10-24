@@ -197,14 +197,14 @@ class HumeClient:
                 # Extract emotions
                 emotions_dict = {emotion.name: emotion.score for emotion in first_face.emotions}
 
-                # Find primary emotion (highest score)
-                primary_emotion = max(emotions_dict.items(), key=lambda x: x[1])
+                # Map to investor state FIRST
+                investor_state = self._map_to_investor_state(emotions_dict)
+
+                # Find primary emotion FROM the winning state category (not globally)
+                primary_emotion = self._get_primary_emotion_for_state(emotions_dict, investor_state)
 
                 # Get top 5 emotions
                 top_emotions = sorted(emotions_dict.items(), key=lambda x: x[1], reverse=True)[:5]
-
-                # Map to investor state
-                investor_state = self._map_to_investor_state(emotions_dict)
 
                 # Extract bounding box if available
                 bbox = None
@@ -372,6 +372,59 @@ class HumeClient:
             logger.exception("Full traceback:")  # This will show the full error
             return None
 
+    def _get_primary_emotion_for_state(self, emotions: Dict[str, float], state: str) -> tuple:
+        """
+        Get the highest scoring emotion that belongs to the given state category
+
+        This ensures the displayed primary emotion matches the state.
+        For example, if state is "positive", only show Joy/Amusement/Excitement,
+        not Confusion even if Confusion has a higher raw score.
+
+        Args:
+            emotions: Dictionary of all emotion scores
+            state: The determined investor state
+
+        Returns:
+            Tuple of (emotion_name, score)
+        """
+        # Define which emotions belong to each state
+        state_emotions = {
+            "skeptical": [
+                "Anger", "Fear", "Doubt", "Anxiety (negative)", "Contempt",
+                "Disapproval", "Sadness", "Disgust", "Boredom", "Distress", "Pain"
+            ],
+            "evaluative": [
+                "Concentration", "Contemplation", "Realization", "Confusion"
+            ],
+            "receptive": [
+                "Interest", "Curiosity", "Calmness", "Surprise (positive)",
+                "Aesthetic Appreciation"
+            ],
+            "positive": [
+                "Joy", "Excitement", "Amusement", "Admiration", "Satisfaction", "Triumph"
+            ],
+            "neutral": []  # For neutral, use global max
+        }
+
+        # Get emotions for this state
+        relevant_emotions = state_emotions.get(state, [])
+
+        if not relevant_emotions:
+            # Neutral or unknown state - use global max
+            return max(emotions.items(), key=lambda x: x[1])
+
+        # Find highest scoring emotion from this state's category
+        filtered_emotions = {
+            name: score for name, score in emotions.items()
+            if name in relevant_emotions
+        }
+
+        if filtered_emotions:
+            return max(filtered_emotions.items(), key=lambda x: x[1])
+        else:
+            # Fallback: if no emotions from category found, use global max
+            return max(emotions.items(), key=lambda x: x[1])
+
     def _map_to_investor_state(self, emotions: Dict[str, float]) -> str:
         """
         Map Hume's 53 emotions to investor states for demo scenario
@@ -390,42 +443,47 @@ class HumeClient:
         """
         # Hume provides 53 emotions - we'll map the most relevant ones
 
-        # Skeptical indicators
+        # Skeptical indicators (negative, doubting, resistant emotions)
         skeptical_score = (
+            emotions.get("Anger", 0) * 0.7 +           # Strong negative indicator
+            emotions.get("Fear", 0) * 0.6 +            # Strong negative indicator
             emotions.get("Doubt", 0) * 0.5 +
+            emotions.get("Anxiety (negative)", 0) * 0.5 +
             emotions.get("Contempt", 0) * 0.4 +
             emotions.get("Disapproval", 0) * 0.4 +
+            emotions.get("Sadness", 0) * 0.3 +         # Added negative emotion
             emotions.get("Disgust", 0) * 0.3 +
             emotions.get("Boredom", 0) * 0.3 +
-            emotions.get("Distress", 0) * 0.2
+            emotions.get("Distress", 0) * 0.2 +
+            emotions.get("Pain", 0) * 0.2              # Added negative emotion
         )
 
-        # Evaluative indicators
+        # Evaluative indicators (thinking, analyzing)
         evaluative_score = (
-            emotions.get("Concentration", 0) * 0.6 +
-            emotions.get("Contemplation", 0) * 0.5 +
-            emotions.get("Confusion", 0) * 0.3 +
-            emotions.get("Realization", 0) * 0.4 +
-            emotions.get("Interest", 0) * 0.3
+            emotions.get("Concentration", 0) * 0.8 +      # Increased from 0.6
+            emotions.get("Contemplation", 0) * 0.7 +     # Increased from 0.5
+            emotions.get("Realization", 0) * 0.6 +       # Increased from 0.4
+            emotions.get("Confusion", 0) * 0.4           # Increased from 0.3
+            # REMOVED: Interest (moved to receptive only)
         )
 
-        # Receptive indicators
+        # Receptive indicators (interested, engaged, open)
         receptive_score = (
-            emotions.get("Interest", 0) * 0.5 +
-            emotions.get("Curiosity", 0) * 0.5 +
-            emotions.get("Surprise (positive)", 0) * 0.4 +
-            emotions.get("Aesthetic Appreciation", 0) * 0.3 +
-            emotions.get("Calmness", 0) * 0.2
+            emotions.get("Interest", 0) * 0.9 +            # Increased from 0.5 - PRIMARY indicator
+            emotions.get("Curiosity", 0) * 0.7 +           # Increased from 0.5
+            emotions.get("Calmness", 0) * 0.6 +            # Increased from 0.2 - important for receptive state
+            emotions.get("Surprise (positive)", 0) * 0.5 + # Increased from 0.4
+            emotions.get("Aesthetic Appreciation", 0) * 0.4  # Increased from 0.3
         )
 
-        # Positive indicators
+        # Positive indicators (happy, enthusiastic, engaged positively)
         positive_score = (
-            emotions.get("Admiration", 0) * 0.6 +
-            emotions.get("Excitement", 0) * 0.5 +
-            emotions.get("Joy", 0) * 0.5 +
-            emotions.get("Satisfaction", 0) * 0.4 +
-            emotions.get("Triumph", 0) * 0.4 +
-            emotions.get("Amusement", 0) * 0.3
+            emotions.get("Joy", 0) * 0.9 +               # Increased from 0.5 - PRIMARY indicator
+            emotions.get("Excitement", 0) * 0.8 +        # Increased from 0.5
+            emotions.get("Amusement", 0) * 0.7 +         # Increased from 0.3
+            emotions.get("Admiration", 0) * 0.7 +        # Increased from 0.6
+            emotions.get("Satisfaction", 0) * 0.6 +      # Increased from 0.4
+            emotions.get("Triumph", 0) * 0.5             # Increased from 0.4
         )
 
         # Determine dominant state
@@ -438,10 +496,24 @@ class HumeClient:
 
         dominant_state = max(states.items(), key=lambda x: x[1])
 
+        # DEBUG: Log emotion score calculations
+        logger.debug(f"   🎭 Emotion → State Mapping:")
+        logger.debug(f"      Skeptical: {skeptical_score:.3f}")
+        logger.debug(f"      Evaluative: {evaluative_score:.3f}")
+        logger.debug(f"      Receptive: {receptive_score:.3f}")
+        logger.debug(f"      Positive: {positive_score:.3f}")
+        logger.debug(f"      → Dominant: {dominant_state[0]} ({dominant_state[1]:.3f})")
+
+        # Log top 5 raw emotions for debugging
+        top_5_emotions = sorted(emotions.items(), key=lambda x: x[1], reverse=True)[:5]
+        logger.debug(f"      Top 5 raw emotions: {', '.join([f'{name}={score:.2f}' for name, score in top_5_emotions])}")
+
         # Return state only if confidence is above threshold
-        if dominant_state[1] > 0.15:  # Lower threshold due to more granular emotions
+        if dominant_state[1] > 0.10:  # Lowered from 0.15 for faster state changes
+            logger.info(f"   🎭 Investor state: {dominant_state[0]} (score: {dominant_state[1]:.3f})")
             return dominant_state[0]
         else:
+            logger.info(f"   🎭 Investor state: neutral (all scores below threshold 0.10)")
             return "neutral"
 
 

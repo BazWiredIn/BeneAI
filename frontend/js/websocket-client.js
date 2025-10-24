@@ -12,6 +12,10 @@ class WebSocketClient {
         this.reconnectDelay = 1000;
         this.onAdviceCallback = null;
         this.onEmotionCallback = null;
+
+        // Heartbeat/keepalive to prevent connection timeout
+        this.pingInterval = null;
+        this.pingIntervalMs = 25000; // Send ping every 25 seconds
     }
 
     /**
@@ -26,6 +30,10 @@ class WebSocketClient {
                     this.isConnected = true;
                     this.reconnectAttempts = 0;
                     debug('WebSocket connected');
+
+                    // Start heartbeat/keepalive ping
+                    this.startHeartbeat();
+
                     resolve();
                 };
 
@@ -40,6 +48,7 @@ class WebSocketClient {
 
                 this.ws.onclose = () => {
                     this.isConnected = false;
+                    this.stopHeartbeat();
                     debug('WebSocket closed');
                     this.attemptReconnect();
                 };
@@ -86,11 +95,27 @@ class WebSocketClient {
                 break;
 
             case 'emotion_result':
-                // Handle emotion detection result from Luxand
+                // Handle emotion detection result from Hume AI
                 if (this.onEmotionCallback) {
                     this.onEmotionCallback(message);
                 }
                 debug('Emotion result:', message.investor_state, message.confidence);
+                break;
+
+            case 'interval_complete':
+                // Handle 1-second interval completion
+                if (this.onIntervalCallback) {
+                    this.onIntervalCallback(message.interval);
+                }
+                debug('Interval complete:', message.interval.investor_state);
+                break;
+
+            case 'llm_context_update':
+                // Handle LLM coaching advice (every 4-5 seconds)
+                if (this.onCoachingCallback) {
+                    this.onCoachingCallback(message);
+                }
+                debug('Coaching advice:', message.coaching_advice);
                 break;
 
             case 'emotion_error':
@@ -160,6 +185,28 @@ class WebSocketClient {
     }
 
     /**
+     * Send speech metrics to backend
+     */
+    sendSpeechMetrics(metrics) {
+        if (!this.isConnected) {
+            debug('Not connected, skipping speech metrics');
+            return;
+        }
+
+        const payload = {
+            type: 'speech_metrics',
+            timestamp: Date.now(),
+            metrics: metrics
+        };
+
+        this.ws.send(JSON.stringify(payload));
+        debug('Speech metrics sent:', {
+            wordsPerMinute: metrics.wordsPerMinute,
+            wordCount: metrics.recentTranscript ? metrics.recentTranscript.split(' ').length : 0
+        });
+    }
+
+    /**
      * Send ping
      */
     ping() {
@@ -210,6 +257,72 @@ class WebSocketClient {
     }
 
     /**
+     * Set callback for interval updates
+     */
+    onInterval(callback) {
+        this.onIntervalCallback = callback;
+    }
+
+    /**
+     * Set callback for coaching updates
+     */
+    onCoaching(callback) {
+        this.onCoachingCallback = callback;
+    }
+
+    /**
+     * Send audio chunk for speech-to-text (Deepgram)
+     */
+    sendAudioChunk(audioData) {
+        if (!this.isConnected) {
+            console.warn('⚠️ [WebSocket] Not connected, skipping audio chunk');
+            debug('Not connected, skipping audio chunk');
+            return;
+        }
+
+        console.log(`📤 [WebSocket] Sending audio chunk #${audioData.chunkNumber}`);
+        console.log(`   Size: ${audioData.size} bytes, Duration: ${audioData.duration}s`);
+        console.log(`   Base64 length: ${audioData.base64.length} chars`);
+
+        const payload = {
+            type: 'audio_chunk',
+            timestamp: Date.now(),
+            data: {
+                audio: audioData.base64,
+                mimeType: audioData.mimeType,
+                duration: audioData.duration,
+                chunkNumber: audioData.chunkNumber
+            }
+        };
+
+        this.ws.send(JSON.stringify(payload));
+        console.log(`   ✅ Sent via WebSocket successfully`);
+        debug(`Audio chunk sent: #${audioData.chunkNumber} (${audioData.size} bytes, ${audioData.duration}s)`);
+    }
+
+    /**
+     * Send transcribed text with timestamps (for Hume language analysis)
+     */
+    sendTranscribedText(text, timestamp, words = null) {
+        if (!this.isConnected) {
+            debug('Not connected, skipping transcript send');
+            return;
+        }
+
+        const payload = {
+            type: 'transcribed_text',
+            data: {
+                text: text,
+                timestamp: timestamp,
+                words: words || []  // Optional word-level timestamps
+            }
+        };
+
+        this.ws.send(JSON.stringify(payload));
+        debug('Transcribed text sent:', text.substring(0, 50));
+    }
+
+    /**
      * Show loading state for advice
      */
     showAdviceLoading(show) {
@@ -230,11 +343,45 @@ class WebSocketClient {
     }
 
     /**
+     * Start heartbeat/keepalive ping
+     */
+    startHeartbeat() {
+        // Clear any existing interval
+        this.stopHeartbeat();
+
+        // Send ping periodically to keep connection alive
+        this.pingInterval = setInterval(() => {
+            if (this.isConnected && this.ws && this.ws.readyState === WebSocket.OPEN) {
+                const pingPayload = {
+                    type: 'ping',
+                    timestamp: Date.now()
+                };
+                this.ws.send(JSON.stringify(pingPayload));
+                console.log('🔄 [WebSocket] Heartbeat ping sent');
+            }
+        }, this.pingIntervalMs);
+
+        console.log(`✓ [WebSocket] Heartbeat started (every ${this.pingIntervalMs/1000}s)`);
+    }
+
+    /**
+     * Stop heartbeat/keepalive ping
+     */
+    stopHeartbeat() {
+        if (this.pingInterval) {
+            clearInterval(this.pingInterval);
+            this.pingInterval = null;
+            console.log('⏹ [WebSocket] Heartbeat stopped');
+        }
+    }
+
+    /**
      * Disconnect
      */
     disconnect() {
         if (this.ws) {
             this.isConnected = false;
+            this.stopHeartbeat();
             this.ws.close();
         }
     }

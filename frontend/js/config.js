@@ -24,7 +24,7 @@ const CONFIG = {
 
     // Processing Configuration
     PROCESSING: {
-        frameSkip: 3,  // Process every 3rd frame (10 FPS from 30 FPS)
+        targetFPS: 3,  // Target 3 frames per second for emotion analysis
         updateInterval: 2000,  // Send updates every 2 seconds
         emotionSmoothingWindow: 5  // Average over last 5 frames
     },
