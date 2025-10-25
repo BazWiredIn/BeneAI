@@ -1,0 +1,152 @@
+{
+  "_comment": "Ground Truth Annotation Template for BeneAI Performance Testing - Coffee Shop Conversation",
+  "_instructions": [
+    "1. Copy this template and rename it to match your test video (e.g., coffee_shop_conversation_annotations.json)",
+    "2. Fill in the 'video' field with the filename of your test video",
+    "3. Set 'fps' to the original frame rate of your video (use 'ffmpeg -i video.mp4' to check)",
+    "4. Add annotations for each moment where emotions/states are clearly visible",
+    "5. Use timestamps in seconds (can be decimal, e.g., 2.5 for 2.5 seconds)",
+    "6. Emotion values should match Hume AI emotions or common emotions (see list below)",
+    "7. Social states: 'receptive', 'positive', 'engaged', 'cautious', 'neutral', 'open', 'comfortable'"
+  ],
+  "_emotion_reference": {
+    "primary_emotions": ["Joy", "Sadness", "Anger", "Fear", "Surprise", "Disgust"],
+    "social_relevant": ["Interest", "Curiosity", "Amusement", "Confusion", "Contemplation", "Excitement", "Contentment", "Relaxation"],
+    "social_states": ["receptive", "positive", "engaged", "cautious", "neutral", "open", "comfortable", "animated"]
+  },
+  "video": "coffee_shop_conversation.mp4",
+  "fps": 30,
+  "duration_seconds": 96.0,
+  "annotator": "Your Name",
+  "annotation_date": "2025-10-25",
+  "notes": "Social interaction annotation for conversation between Johnny and Yaseen at coffee shop. Focus on Yaseen's facial expressions and engagement signals.",
+  "annotations": [
+    {
+      "timestamp": 0.0,
+      "emotion": "Calmness",
+      "social_state": "neutral",
+      "confidence": 0.95,
+      "notes": "Neutral baseline, scanning menu, relaxed posture, mouth closed, no tension around eyes"
+    },
+    {
+      "timestamp": 7.5,
+      "emotion": "Interest",
+      "social_state": "receptive",
+      "confidence": 0.9,
+      "notes": "Brief glance, quick half-smile, eyebrows lift, eye contact maintained - positive micro-response"
+    },
+    {
+      "timestamp": 13.0,
+      "emotion": "Contentment",
+      "social_state": "positive",
+      "confidence": 0.85,
+      "notes": "Lips pull slightly upward, head tilt toward Johnny, shoulders stay relaxed - interest detected"
+    },
+    {
+      "timestamp": 16.0,
+      "emotion": "Amusement",
+      "social_state": "engaged",
+      "confidence": 0.9,
+      "notes": "Amused micro-smile, slight brow raise, eye contact continues - humor landed"
+    },
+    {
+      "timestamp": 22.0,
+      "emotion": "Calmness",
+      "social_state": "comfortable",
+      "confidence": 0.85,
+      "notes": "Neutral-to-positive, chin nod, engagement steady after mentioning lab"
+    },
+    {
+      "timestamp": 24.0,
+      "emotion": "Contemplation",
+      "social_state": "engaged",
+      "confidence": 0.8,
+      "notes": "Quick inhale, looks up briefly as if recalling, then back - comfortable and preparing to explain"
+    },
+    {
+      "timestamp": 31.0,
+      "emotion": "Interest",
+      "social_state": "engaged",
+      "confidence": 0.85,
+      "notes": "Slight eyebrow knit on 'debugging,' then relax - still engaged in technical discussion"
+    },
+    {
+      "timestamp": 42.0,
+      "emotion": "Joy",
+      "social_state": "positive",
+      "confidence": 0.9,
+      "notes": "Smile returns, micro-nods, stance opens a bit toward Johnny - connection made"
+    },
+    {
+      "timestamp": 48.0,
+      "emotion": "Contemplation",
+      "social_state": "engaged",
+      "confidence": 0.8,
+      "notes": "Slight lip press on 'drift,' then relaxed - engagement sustained during technical explanation"
+    },
+    {
+      "timestamp": 53.0,
+      "emotion": "Amusement",
+      "social_state": "comfortable",
+      "confidence": 0.9,
+      "notes": "Soft laugh, shoulders lift briefly - shared vibe, mutual rapport achieved"
+    },
+    {
+      "timestamp": 57.0,
+      "emotion": "Contemplation",
+      "social_state": "neutral",
+      "confidence": 0.75,
+      "notes": "Glance to the seating area, then back - neutral-positive, considering options"
+    },
+    {
+      "timestamp": 64.0,
+      "emotion": "Openness",
+      "social_state": "receptive",
+      "confidence": 0.9,
+      "notes": "Open posture, continued eye contact - green light for continued conversation"
+    },
+    {
+      "timestamp": 70.0,
+      "emotion": "Excitement",
+      "social_state": "animated",
+      "confidence": 0.95,
+      "notes": "Animated hand gesture, enthusiasm increases when discussing project"
+    },
+    {
+      "timestamp": 76.0,
+      "emotion": "Joy",
+      "social_state": "engaged",
+      "confidence": 0.9,
+      "notes": "Engaged; smile is consistent throughout project description"
+    },
+    {
+      "timestamp": 80.0,
+      "emotion": "Interest",
+      "social_state": "positive",
+      "confidence": 0.9,
+      "notes": "Affirmative nods, positive micro-smile - receptive to future collaboration"
+    },
+    {
+      "timestamp": 90.0,
+      "emotion": "Satisfaction",
+      "social_state": "positive",
+      "confidence": 0.95,
+      "notes": "Steady smile, relaxed shoulders - agreement to exchange contact information"
+    },
+    {
+      "timestamp": 96.0,
+      "emotion": "Joy",
+      "social_state": "positive",
+      "confidence": 0.9,
+      "notes": "Amused smile, final nod - positive end state to conversation"
+    }
+  ],
+  "_validation_notes": [
+    "Ensure timestamps are in ascending order",
+    "Confidence scores should be 0.0-1.0 (1.0 = very confident in annotation)",
+    "Annotations placed at key emotional/engagement transitions every 6 seconds",
+    "Mark clear social engagement signals and emotional shifts",
+    "Use 'notes' field to document facial cues and body language that led to annotation",
+    "This template tracks a natural conversation progression from neutral → receptive → engaged → positive"
+  ]
+}
