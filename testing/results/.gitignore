@@ -1,0 +1,4 @@
+# Ignore all test results but keep the directory
+*
+!.gitignore
+!README.md
