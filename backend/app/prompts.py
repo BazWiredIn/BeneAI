@@ -41,7 +41,7 @@ def build_negotiation_prompt(context: dict) -> str:
 
         interval_summary = f"[Interval {i+1}] Emotions: {emotion_str}"
         if speech:
-            interval_summary += f' | Founder said: "{speech}"'
+            interval_summary += f' | You said: "{speech}"'
         else:
             interval_summary += " | [silence]"
 
@@ -61,11 +61,11 @@ def build_negotiation_prompt(context: dict) -> str:
     # Build prompt
     trajectory_text = "\n".join(emotion_trajectory)
 
-    prompt = f"""Investor Emotion Analysis (last 4 seconds, 4 intervals oldest→newest):
+    prompt = f"""Their Emotional Response (last 4 seconds, 4 intervals oldest→newest):
 
 {trajectory_text}{shift_text}
 
-Based on this emotion trajectory, provide ONE tactical coaching move (max 15 words):"""
+Based on this emotion trajectory, provide ONE tactical conversational move (max 15 words):"""
 
     # DEBUG: Log the complete prompt being sent to OpenAI
     logger.info("=" * 60)
@@ -76,21 +76,25 @@ Based on this emotion trajectory, provide ONE tactical coaching move (max 15 wor
     return prompt
 
 
-# Emotion state to emoji mapping
+# Emotion state to emoji mapping (Social Interaction States)
 INVESTOR_STATE_EMOJI = {
-    "skeptical": "🔴",
-    "evaluative": "🟡",
-    "receptive": "🟢",
-    "positive": "🟢",
+    "closed-off": "🔴",
+    "baseline": "⚪",
+    "curious": "🔵",
+    "amused": "🟡",
+    "enthusiastic": "🟢",
+    "thinking": "🟣",
     "neutral": "⚪"
 }
 
 # Emotion state to color mapping (for frontend)
 INVESTOR_STATE_COLOR = {
-    "skeptical": "#ef4444",      # red-500
-    "evaluative": "#eab308",     # yellow-500
-    "receptive": "#22c55e",      # green-500
-    "positive": "#10b981",       # emerald-500
+    "closed-off": "#ef4444",     # red-500
+    "baseline": "#9ca3af",       # gray-400
+    "curious": "#3b82f6",        # blue-500
+    "amused": "#eab308",         # yellow-500
+    "enthusiastic": "#10b981",   # emerald-500
+    "thinking": "#a855f7",       # purple-500
     "neutral": "#9ca3af"         # gray-400
 }
 

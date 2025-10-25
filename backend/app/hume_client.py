@@ -377,31 +377,39 @@ class HumeClient:
         Get the highest scoring emotion that belongs to the given state category
 
         This ensures the displayed primary emotion matches the state.
-        For example, if state is "positive", only show Joy/Amusement/Excitement,
+        For example, if state is "enthusiastic", only show Joy/Excitement/Admiration,
         not Confusion even if Confusion has a higher raw score.
 
         Args:
             emotions: Dictionary of all emotion scores
-            state: The determined investor state
+            state: The determined engagement state for social interactions
 
         Returns:
             Tuple of (emotion_name, score)
         """
-        # Define which emotions belong to each state
+        # Define which emotions belong to each social interaction state
         state_emotions = {
-            "skeptical": [
-                "Anger", "Fear", "Doubt", "Anxiety (negative)", "Contempt",
-                "Disapproval", "Sadness", "Disgust", "Boredom", "Distress", "Pain"
+            "closed-off": [
+                "Anger", "Fear", "Anxiety (negative)", "Distress", "Contempt",
+                "Disgust", "Boredom", "Awkwardness", "Disapproval", "Sadness",
+                "Doubt", "Pain"
             ],
-            "evaluative": [
-                "Concentration", "Contemplation", "Realization", "Confusion"
+            "baseline": [
+                "Calmness", "Aesthetic Appreciation", "Contemplation"
             ],
-            "receptive": [
-                "Interest", "Curiosity", "Calmness", "Surprise (positive)",
-                "Aesthetic Appreciation"
+            "curious": [
+                "Interest", "Curiosity", "Concentration", "Realization",
+                "Surprise (positive)"
             ],
-            "positive": [
-                "Joy", "Excitement", "Amusement", "Admiration", "Satisfaction", "Triumph"
+            "amused": [
+                "Amusement", "Joy", "Satisfaction", "Entrancement"
+            ],
+            "enthusiastic": [
+                "Joy", "Excitement", "Admiration", "Triumph", "Ecstasy",
+                "Surprise (positive)"
+            ],
+            "thinking": [
+                "Contemplation", "Concentration", "Confusion", "Realization"
             ],
             "neutral": []  # For neutral, use global max
         }
@@ -427,81 +435,102 @@ class HumeClient:
 
     def _map_to_investor_state(self, emotions: Dict[str, float]) -> str:
         """
-        Map Hume's 53 emotions to investor states for demo scenario
+        Map Hume's 53 emotions to social interaction states
 
-        Investor States:
-        - skeptical: Doubt, disinterest, concern
-        - evaluative: Thinking, analyzing, concentration
-        - receptive: Interest, curiosity, approval
-        - positive: Agreement, enthusiasm, admiration
+        Social Interaction States:
+        - closed-off: Disengaged, uncomfortable, wants to exit
+        - baseline: Neutral, just met, scanning environment
+        - curious: Interested, engaged, asking/answering questions
+        - amused: Humor landed, lighthearted, positive micro-expressions
+        - enthusiastic: Strong positive connection, animated, excited
+        - thinking: Processing, contemplating, considering response
 
         Args:
             emotions: Dictionary of emotion names to scores
 
         Returns:
-            Investor state string
+            Social interaction state string
         """
         # Hume provides 53 emotions - we'll map the most relevant ones
 
-        # Skeptical indicators (negative, doubting, resistant emotions)
-        skeptical_score = (
-            emotions.get("Anger", 0) * 0.7 +           # Strong negative indicator
-            emotions.get("Fear", 0) * 0.6 +            # Strong negative indicator
-            emotions.get("Doubt", 0) * 0.5 +
-            emotions.get("Anxiety (negative)", 0) * 0.5 +
-            emotions.get("Contempt", 0) * 0.4 +
-            emotions.get("Disapproval", 0) * 0.4 +
-            emotions.get("Sadness", 0) * 0.3 +         # Added negative emotion
-            emotions.get("Disgust", 0) * 0.3 +
-            emotions.get("Boredom", 0) * 0.3 +
-            emotions.get("Distress", 0) * 0.2 +
-            emotions.get("Pain", 0) * 0.2              # Added negative emotion
+        # Closed-off indicators (disengaged, uncomfortable, wants to exit)
+        closed_off_score = (
+            emotions.get("Anger", 0) * 0.7 +
+            emotions.get("Fear", 0) * 0.6 +
+            emotions.get("Anxiety (negative)", 0) * 0.6 +
+            emotions.get("Distress", 0) * 0.5 +
+            emotions.get("Contempt", 0) * 0.5 +
+            emotions.get("Disgust", 0) * 0.4 +
+            emotions.get("Boredom", 0) * 0.6 +           # High weight for disengagement
+            emotions.get("Awkwardness", 0) * 0.7 +       # High weight for social discomfort
+            emotions.get("Disapproval", 0) * 0.3 +
+            emotions.get("Sadness", 0) * 0.3 +
+            emotions.get("Doubt", 0) * 0.3 +
+            emotions.get("Pain", 0) * 0.2
         )
 
-        # Evaluative indicators (thinking, analyzing)
-        evaluative_score = (
-            emotions.get("Concentration", 0) * 0.8 +      # Increased from 0.6
-            emotions.get("Contemplation", 0) * 0.7 +     # Increased from 0.5
-            emotions.get("Realization", 0) * 0.6 +       # Increased from 0.4
-            emotions.get("Confusion", 0) * 0.4           # Increased from 0.3
-            # REMOVED: Interest (moved to receptive only)
+        # Baseline indicators (neutral, calm, just met)
+        baseline_score = (
+            emotions.get("Calmness", 0) * 0.8 +
+            emotions.get("Aesthetic Appreciation", 0) * 0.3 +
+            emotions.get("Contemplation", 0) * 0.2        # Mild thinking without strong engagement
         )
 
-        # Receptive indicators (interested, engaged, open)
-        receptive_score = (
-            emotions.get("Interest", 0) * 0.9 +            # Increased from 0.5 - PRIMARY indicator
-            emotions.get("Curiosity", 0) * 0.7 +           # Increased from 0.5
-            emotions.get("Calmness", 0) * 0.6 +            # Increased from 0.2 - important for receptive state
-            emotions.get("Surprise (positive)", 0) * 0.5 + # Increased from 0.4
-            emotions.get("Aesthetic Appreciation", 0) * 0.4  # Increased from 0.3
+        # Curious indicators (interested, engaged in conversation)
+        curious_score = (
+            emotions.get("Interest", 0) * 0.9 +           # PRIMARY indicator
+            emotions.get("Curiosity", 0) * 0.9 +          # PRIMARY indicator
+            emotions.get("Concentration", 0) * 0.5 +      # Focused attention
+            emotions.get("Realization", 0) * 0.5 +        # "Aha" moments in conversation
+            emotions.get("Surprise (positive)", 0) * 0.4
         )
 
-        # Positive indicators (happy, enthusiastic, engaged positively)
-        positive_score = (
-            emotions.get("Joy", 0) * 0.9 +               # Increased from 0.5 - PRIMARY indicator
-            emotions.get("Excitement", 0) * 0.8 +        # Increased from 0.5
-            emotions.get("Amusement", 0) * 0.7 +         # Increased from 0.3
-            emotions.get("Admiration", 0) * 0.7 +        # Increased from 0.6
-            emotions.get("Satisfaction", 0) * 0.6 +      # Increased from 0.4
-            emotions.get("Triumph", 0) * 0.5             # Increased from 0.4
+        # Amused indicators (humor landed, lighthearted)
+        amused_score = (
+            emotions.get("Amusement", 0) * 0.9 +          # PRIMARY indicator
+            emotions.get("Joy", 0) * 0.5 +                # Mild joy (strong joy goes to enthusiastic)
+            emotions.get("Satisfaction", 0) * 0.6 +
+            emotions.get("Entrancement", 0) * 0.4
+        )
+
+        # Enthusiastic indicators (strong positive connection, excited)
+        enthusiastic_score = (
+            emotions.get("Joy", 0) * 0.9 +                # PRIMARY indicator
+            emotions.get("Excitement", 0) * 0.9 +         # PRIMARY indicator
+            emotions.get("Admiration", 0) * 0.7 +
+            emotions.get("Triumph", 0) * 0.5 +
+            emotions.get("Ecstasy", 0) * 0.6 +
+            emotions.get("Surprise (positive)", 0) * 0.5
+        )
+
+        # Thinking indicators (processing, contemplating response)
+        thinking_score = (
+            emotions.get("Contemplation", 0) * 0.8 +
+            emotions.get("Concentration", 0) * 0.7 +
+            emotions.get("Confusion", 0) * 0.4 +          # Mild confusion as thinking through something
+            emotions.get("Realization", 0) * 0.3
         )
 
         # Determine dominant state
         states = {
-            "skeptical": skeptical_score,
-            "evaluative": evaluative_score,
-            "receptive": receptive_score,
-            "positive": positive_score
+            "closed-off": closed_off_score,
+            "baseline": baseline_score,
+            "curious": curious_score,
+            "amused": amused_score,
+            "enthusiastic": enthusiastic_score,
+            "thinking": thinking_score
         }
 
         dominant_state = max(states.items(), key=lambda x: x[1])
 
         # DEBUG: Log emotion score calculations
         logger.debug(f"   🎭 Emotion → State Mapping:")
-        logger.debug(f"      Skeptical: {skeptical_score:.3f}")
-        logger.debug(f"      Evaluative: {evaluative_score:.3f}")
-        logger.debug(f"      Receptive: {receptive_score:.3f}")
-        logger.debug(f"      Positive: {positive_score:.3f}")
+        logger.debug(f"      Closed-off: {closed_off_score:.3f}")
+        logger.debug(f"      Baseline: {baseline_score:.3f}")
+        logger.debug(f"      Curious: {curious_score:.3f}")
+        logger.debug(f"      Amused: {amused_score:.3f}")
+        logger.debug(f"      Enthusiastic: {enthusiastic_score:.3f}")
+        logger.debug(f"      Thinking: {thinking_score:.3f}")
         logger.debug(f"      → Dominant: {dominant_state[0]} ({dominant_state[1]:.3f})")
 
         # Log top 5 raw emotions for debugging
@@ -510,11 +539,11 @@ class HumeClient:
 
         # Return state only if confidence is above threshold
         if dominant_state[1] > 0.10:  # Lowered from 0.15 for faster state changes
-            logger.info(f"   🎭 Investor state: {dominant_state[0]} (score: {dominant_state[1]:.3f})")
+            logger.info(f"   🎭 Engagement state: {dominant_state[0]} (score: {dominant_state[1]:.3f})")
             return dominant_state[0]
         else:
-            logger.info(f"   🎭 Investor state: neutral (all scores below threshold 0.10)")
-            return "neutral"
+            logger.info(f"   🎭 Engagement state: baseline (all scores below threshold 0.10)")
+            return "baseline"
 
 
 # Global client instance (lazy initialization)
