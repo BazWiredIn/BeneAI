@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "session_start": 1761374802.9863946,
+    "session_id": "session_1761374802",
+    "client_id": "24b9ba5a-ae6e-4eb5-b31f-d29d5b7dc897"
+  },
+  "emotions": [
+    {
+      "timestamp": 1761374803.2697484,
+      "investor_state": "skeptical",
+      "primary_emotion": "Boredom",
+      "confidence": 0.37531471252441406,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.42722028493881226
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.4188566207885742
+        },
+        {
+          "name": "Boredom",
+          "score": 0.37531471252441406
+        },
+        {
+          "name": "Doubt",
+          "score": 0.37267547845840454
+        },
+        {
+          "name": "Sadness",
+          "score": 0.3632684051990509
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374804.8946033,
+      "investor_state": "skeptical",
+      "primary_emotion": "Boredom",
+      "confidence": 0.4304907023906708,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.43233227729797363
+        },
+        {
+          "name": "Boredom",
+          "score": 0.4304907023906708
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.4180663824081421
+        },
+        {
+          "name": "Doubt",
+          "score": 0.37935322523117065
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3778044879436493
+        }
+      ],
+      "face_detected": true
+    }
+  ],
+  "intervals": [
+    {
+      "interval_number": 1,
+      "timestamp": 1761374803.7697484,
+      "interval_start": 1761374803.2697484,
+      "interval_end": 1761374804.8946033,
+      "investor_state": "skeptical",
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "avg_score": 0.43,
+          "trend": "stable"
+        },
+        {
+          "name": "Disappointment",
+          "avg_score": 0.418,
+          "trend": "stable"
+        },
+        {
+          "name": "Boredom",
+          "avg_score": 0.403,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    }
+  ],
+  "llm_updates": [],
+  "events": []
+}

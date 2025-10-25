@@ -1,0 +1,1302 @@
+{
+  "metadata": {
+    "session_start": 1761374761.6543603,
+    "session_id": "session_1761374761",
+    "client_id": "ee7b0f66-80cd-4a14-8bdd-7d170ee1f094"
+  },
+  "emotions": [
+    {
+      "timestamp": 1761374761.9707928,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9134637117385864,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9134637117385864
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8564459085464478
+        },
+        {
+          "name": "Excitement",
+          "score": 0.523620069026947
+        },
+        {
+          "name": "Interest",
+          "score": 0.41872239112854004
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.4148089289665222
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374763.486983,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9016351103782654,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9016351103782654
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8407700657844543
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5154126286506653
+        },
+        {
+          "name": "Interest",
+          "score": 0.43527454137802124
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.41027265787124634
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374765.0657816,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8837282061576843,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8837282061576843
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8265158534049988
+        },
+        {
+          "name": "Excitement",
+          "score": 0.48443931341171265
+        },
+        {
+          "name": "Interest",
+          "score": 0.45717862248420715
+        },
+        {
+          "name": "Love",
+          "score": 0.428818017244339
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374766.5346327,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8339703679084778,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8339703679084778
+        },
+        {
+          "name": "Amusement",
+          "score": 0.7813329100608826
+        },
+        {
+          "name": "Interest",
+          "score": 0.4794972836971283
+        },
+        {
+          "name": "Love",
+          "score": 0.44327211380004883
+        },
+        {
+          "name": "Excitement",
+          "score": 0.438025563955307
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374768.0369985,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.7624462842941284,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.7624462842941284
+        },
+        {
+          "name": "Amusement",
+          "score": 0.7143442630767822
+        },
+        {
+          "name": "Interest",
+          "score": 0.477456271648407
+        },
+        {
+          "name": "Love",
+          "score": 0.4003172814846039
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.3934004604816437
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374769.5637305,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8521578311920166,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8521578311920166
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8119924664497375
+        },
+        {
+          "name": "Excitement",
+          "score": 0.49950098991394043
+        },
+        {
+          "name": "Interest",
+          "score": 0.4319114685058594
+        },
+        {
+          "name": "Love",
+          "score": 0.4227225184440613
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374771.1581078,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8920984864234924,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8920984864234924
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8546780943870544
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5339145660400391
+        },
+        {
+          "name": "Love",
+          "score": 0.42790162563323975
+        },
+        {
+          "name": "Interest",
+          "score": 0.4232386350631714
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374772.6668751,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9199943542480469,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9199943542480469
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8682453632354736
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5381388068199158
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.4257436990737915
+        },
+        {
+          "name": "Interest",
+          "score": 0.4173474907875061
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374775.3399525,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9195768237113953,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9195768237113953
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8773250579833984
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5482364892959595
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.41846635937690735
+        },
+        {
+          "name": "Love",
+          "score": 0.40996506810188293
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374776.8171847,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9227576851844788,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9227576851844788
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8798828125
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5467371344566345
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.43312034010887146
+        },
+        {
+          "name": "Interest",
+          "score": 0.4254380166530609
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374779.3841722,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9150944948196411,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9150944948196411
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8690782785415649
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5492444038391113
+        },
+        {
+          "name": "Interest",
+          "score": 0.4233279526233673
+        },
+        {
+          "name": "Love",
+          "score": 0.41852590441703796
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374780.9271178,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9466976523399353,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9466976523399353
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8942194581031799
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5585533380508423
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.42873895168304443
+        },
+        {
+          "name": "Interest",
+          "score": 0.42737632989883423
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374783.1881764,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8672255277633667,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8672255277633667
+        },
+        {
+          "name": "Amusement",
+          "score": 0.7997379302978516
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5048788785934448
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.43463122844696045
+        },
+        {
+          "name": "Love",
+          "score": 0.4075804650783539
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374784.7190478,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8913261294364929,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8913261294364929
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8336842656135559
+        },
+        {
+          "name": "Excitement",
+          "score": 0.516697347164154
+        },
+        {
+          "name": "Love",
+          "score": 0.42855873703956604
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.41395315527915955
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374786.268105,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8251810669898987,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8251810669898987
+        },
+        {
+          "name": "Amusement",
+          "score": 0.7705360651016235
+        },
+        {
+          "name": "Excitement",
+          "score": 0.45039644837379456
+        },
+        {
+          "name": "Interest",
+          "score": 0.4438577890396118
+        },
+        {
+          "name": "Love",
+          "score": 0.3948836922645569
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374787.8380897,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.5916040539741516,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.5916040539741516
+        },
+        {
+          "name": "Amusement",
+          "score": 0.5584681034088135
+        },
+        {
+          "name": "Interest",
+          "score": 0.3524892032146454
+        },
+        {
+          "name": "Excitement",
+          "score": 0.34605979919433594
+        },
+        {
+          "name": "Love",
+          "score": 0.2897903025150299
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374790.3251655,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.6142969131469727,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.6142969131469727
+        },
+        {
+          "name": "Amusement",
+          "score": 0.5833079218864441
+        },
+        {
+          "name": "Interest",
+          "score": 0.41795116662979126
+        },
+        {
+          "name": "Love",
+          "score": 0.3473999500274658
+        },
+        {
+          "name": "Excitement",
+          "score": 0.3395743668079376
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374791.7861836,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8420936465263367,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8420936465263367
+        },
+        {
+          "name": "Amusement",
+          "score": 0.7964009642601013
+        },
+        {
+          "name": "Excitement",
+          "score": 0.4861314594745636
+        },
+        {
+          "name": "Interest",
+          "score": 0.47747862339019775
+        },
+        {
+          "name": "Love",
+          "score": 0.46267056465148926
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374793.346853,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9141369462013245,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9141369462013245
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8681818842887878
+        },
+        {
+          "name": "Excitement",
+          "score": 0.554545521736145
+        },
+        {
+          "name": "Love",
+          "score": 0.4235003590583801
+        },
+        {
+          "name": "Interest",
+          "score": 0.4141983985900879
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374794.9562404,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9257292747497559,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9257292747497559
+        },
+        {
+          "name": "Amusement",
+          "score": 0.881596028804779
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5464737415313721
+        },
+        {
+          "name": "Love",
+          "score": 0.42453619837760925
+        },
+        {
+          "name": "Satisfaction",
+          "score": 0.4203864336013794
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374797.5032039,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.8890260457992554,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.8890260457992554
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8350719809532166
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5148295164108276
+        },
+        {
+          "name": "Interest",
+          "score": 0.42861777544021606
+        },
+        {
+          "name": "Love",
+          "score": 0.4178464412689209
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374799.0017326,
+      "investor_state": "positive",
+      "primary_emotion": "Joy",
+      "confidence": 0.9109822511672974,
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "score": 0.9109822511672974
+        },
+        {
+          "name": "Amusement",
+          "score": 0.8613696694374084
+        },
+        {
+          "name": "Excitement",
+          "score": 0.5410017371177673
+        },
+        {
+          "name": "Love",
+          "score": 0.4221450984477997
+        },
+        {
+          "name": "Interest",
+          "score": 0.414120078086853
+        }
+      ],
+      "face_detected": true
+    }
+  ],
+  "intervals": [
+    {
+      "interval_number": 1,
+      "timestamp": 1761374762.4707928,
+      "interval_start": 1761374761.9707928,
+      "interval_end": 1761374763.486983,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.908,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.849,
+          "trend": "stable"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.52,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 2,
+      "timestamp": 1761374765.5657816,
+      "interval_start": 1761374765.0657816,
+      "interval_end": 1761374766.5346327,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.859,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.804,
+          "trend": "stable"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.468,
+          "trend": "new"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 3,
+      "timestamp": 1761374768.5369985,
+      "interval_start": 1761374768.0369985,
+      "interval_end": 1761374769.5637305,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.807,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.763,
+          "trend": "stable"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.455,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 4,
+      "timestamp": 1761374771.6581078,
+      "interval_start": 1761374771.1581078,
+      "interval_end": 1761374772.6668751,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.906,
+          "trend": "increasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.861,
+          "trend": "increasing"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.536,
+          "trend": "new"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 5,
+      "timestamp": 1761374775.8399525,
+      "interval_start": 1761374775.3399525,
+      "interval_end": 1761374776.8171847,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.921,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.879,
+          "trend": "stable"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.547,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 6,
+      "timestamp": 1761374779.8841722,
+      "interval_start": 1761374779.3841722,
+      "interval_end": 1761374780.9271178,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.931,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.882,
+          "trend": "stable"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.554,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 7,
+      "timestamp": 1761374783.6881764,
+      "interval_start": 1761374783.1881764,
+      "interval_end": 1761374784.7190478,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.879,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.817,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.511,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 8,
+      "timestamp": 1761374786.768105,
+      "interval_start": 1761374786.268105,
+      "interval_end": 1761374787.8380897,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.708,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.665,
+          "trend": "decreasing"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.398,
+          "trend": "decreasing"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 9,
+      "timestamp": 1761374790.8251655,
+      "interval_start": 1761374790.3251655,
+      "interval_end": 1761374791.7861836,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.728,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.69,
+          "trend": "stable"
+        },
+        {
+          "name": "Interest",
+          "avg_score": 0.448,
+          "trend": "new"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 10,
+      "timestamp": 1761374793.846853,
+      "interval_start": 1761374793.346853,
+      "interval_end": 1761374794.9562404,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.92,
+          "trend": "increasing"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.875,
+          "trend": "increasing"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.551,
+          "trend": "new"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 11,
+      "timestamp": 1761374798.0032039,
+      "interval_start": 1761374797.5032039,
+      "interval_end": 1761374799.0017326,
+      "investor_state": "positive",
+      "top_emotions": [
+        {
+          "name": "Joy",
+          "avg_score": 0.9,
+          "trend": "stable"
+        },
+        {
+          "name": "Amusement",
+          "avg_score": 0.848,
+          "trend": "stable"
+        },
+        {
+          "name": "Excitement",
+          "avg_score": 0.528,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    }
+  ],
+  "llm_updates": [
+    {
+      "update_number": 1,
+      "timestamp": 1761374775.3364172,
+      "context": {
+        "time_window": {
+          "duration_seconds": 10.7,
+          "interval_count": 4,
+          "start_time": 1761374761.9707928,
+          "end_time": 1761374772.6668751
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "stable",
+            "Amusement": "stable",
+            "Excitement": "stable",
+            "Interest": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374762.4707928,
+              "end_timestamp": 1761374771.6581078,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374762.5s] POSITIVE\n  Emotions: Joy(0.91), Amusement(0.85)\n  Said: \"[silence]\"\n\n[1761374765.6s] POSITIVE\n  Emotions: Joy(0.86), Amusement(0.8)\n  Said: \"[silence]\"\n\n[1761374768.5s] POSITIVE\n  Emotions: Joy(0.81), Amusement(0.76)\n  Said: \"[silence]\"\n\n[1761374771.7s] POSITIVE\n  Emotions: Joy(0.91), Amusement(0.86)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Maintain enthusiasm; share a compelling success story to elevate excitement further.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 2,
+      "timestamp": 1761374779.3790658,
+      "context": {
+        "time_window": {
+          "duration_seconds": 11.8,
+          "interval_count": 4,
+          "start_time": 1761374765.0657816,
+          "end_time": 1761374776.8171847
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "increasing",
+            "Amusement": "increasing",
+            "Interest": "stable",
+            "Excitement": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374765.5657816,
+              "end_timestamp": 1761374775.8399525,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374765.6s] POSITIVE\n  Emotions: Joy(0.86), Amusement(0.8)\n  Said: \"[silence]\"\n\n[1761374768.5s] POSITIVE\n  Emotions: Joy(0.81), Amusement(0.76)\n  Said: \"[silence]\"\n\n[1761374771.7s] POSITIVE\n  Emotions: Joy(0.91), Amusement(0.86)\n  Said: \"[silence]\"\n\n[1761374775.8s] POSITIVE\n  Emotions: Joy(0.92), Amusement(0.88)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Maintain this positive energy; share a compelling success story to enhance excitement.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 3,
+      "timestamp": 1761374783.1825364,
+      "context": {
+        "time_window": {
+          "duration_seconds": 12.9,
+          "interval_count": 4,
+          "start_time": 1761374768.0369985,
+          "end_time": 1761374780.9271178
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "increasing",
+            "Amusement": "increasing",
+            "Interest": "stable",
+            "Excitement": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374768.5369985,
+              "end_timestamp": 1761374779.8841722,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374768.5s] POSITIVE\n  Emotions: Joy(0.81), Amusement(0.76)\n  Said: \"[silence]\"\n\n[1761374771.7s] POSITIVE\n  Emotions: Joy(0.91), Amusement(0.86)\n  Said: \"[silence]\"\n\n[1761374775.8s] POSITIVE\n  Emotions: Joy(0.92), Amusement(0.88)\n  Said: \"[silence]\"\n\n[1761374779.9s] POSITIVE\n  Emotions: Joy(0.93), Amusement(0.88)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Maintain the positive energy; share a success story to deepen connection and excitement.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 4,
+      "timestamp": 1761374790.314412,
+      "context": {
+        "time_window": {
+          "duration_seconds": 12.5,
+          "interval_count": 4,
+          "start_time": 1761374775.3399525,
+          "end_time": 1761374787.8380897
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "decreasing",
+            "Amusement": "decreasing",
+            "Excitement": "decreasing"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374775.8399525,
+              "end_timestamp": 1761374786.768105,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374775.8s] POSITIVE\n  Emotions: Joy(0.92), Amusement(0.88)\n  Said: \"[silence]\"\n\n[1761374779.9s] POSITIVE\n  Emotions: Joy(0.93), Amusement(0.88)\n  Said: \"[silence]\"\n\n[1761374783.7s] POSITIVE\n  Emotions: Joy(0.88), Amusement(0.82)\n  Said: \"[silence]\"\n\n[1761374786.8s] POSITIVE\n  Emotions: Joy(0.71), Amusement(0.67)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Shift tone to be more dynamic; inject a compelling story to regain excitement.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 5,
+      "timestamp": 1761374797.4836962,
+      "context": {
+        "time_window": {
+          "duration_seconds": 11.8,
+          "interval_count": 4,
+          "start_time": 1761374783.1881764,
+          "end_time": 1761374794.9562404
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "stable",
+            "Amusement": "stable",
+            "Excitement": "stable",
+            "Interest": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374783.6881764,
+              "end_timestamp": 1761374793.846853,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374783.7s] POSITIVE\n  Emotions: Joy(0.88), Amusement(0.82)\n  Said: \"[silence]\"\n\n[1761374786.8s] POSITIVE\n  Emotions: Joy(0.71), Amusement(0.67)\n  Said: \"[silence]\"\n\n[1761374790.8s] POSITIVE\n  Emotions: Joy(0.73), Amusement(0.69)\n  Said: \"[silence]\"\n\n[1761374793.8s] POSITIVE\n  Emotions: Joy(0.92), Amusement(0.88)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Maintain enthusiasm; share a compelling success story to amplify excitement and joy.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    },
+    {
+      "update_number": 6,
+      "timestamp": 1761374801.5007465,
+      "context": {
+        "time_window": {
+          "duration_seconds": 12.7,
+          "interval_count": 4,
+          "start_time": 1761374786.268105,
+          "end_time": 1761374799.0017326
+        },
+        "summary": {
+          "dominant_state": "positive",
+          "total_words": 0,
+          "total_frames": 8,
+          "emotion_trends": {
+            "Joy": "increasing",
+            "Amusement": "increasing",
+            "Excitement": "increasing",
+            "Interest": "stable"
+          }
+        },
+        "patterns": {
+          "state_transitions": [],
+          "emotion_shifts": [],
+          "silence_periods": [
+            {
+              "start_timestamp": 1761374786.768105,
+              "end_timestamp": 1761374798.0032039,
+              "duration": 4.0,
+              "emotion_during_silence": "positive"
+            }
+          ],
+          "engagement_trend": "stable"
+        },
+        "flags": {
+          "high_confidence_ratio": 1.0,
+          "has_emotion_shifts": false,
+          "has_state_transitions": false,
+          "silence_ratio": 1.0
+        },
+        "intervals_count": 4
+      },
+      "formatted_prompt": "=== PARTICIPANT ANALYSIS (Last 5 seconds) ===\n\nDominant State: POSITIVE\nEngagement Trend: stable\nWords Spoken: 0\n\nSilence Periods:\n  \u2022 4.0s silence (positive state)\n\nInterval Timeline:\n\n[1761374786.8s] POSITIVE\n  Emotions: Joy(0.71), Amusement(0.67)\n  Said: \"[silence]\"\n\n[1761374790.8s] POSITIVE\n  Emotions: Joy(0.73), Amusement(0.69)\n  Said: \"[silence]\"\n\n[1761374793.8s] POSITIVE\n  Emotions: Joy(0.92), Amusement(0.88)\n  Said: \"[silence]\"\n\n[1761374798.0s] POSITIVE\n  Emotions: Joy(0.9), Amusement(0.85)\n  Said: \"[silence]\"",
+      "coaching_advice": "[Advice] Maintain enthusiasm; share a compelling success story to reinforce excitement and interest.",
+      "dominant_state": "positive",
+      "total_words": 0,
+      "engagement_trend": "stable"
+    }
+  ],
+  "events": []
+}

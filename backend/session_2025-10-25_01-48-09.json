@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "session_start": 1761374889.3707876,
+    "session_id": "session_1761374889",
+    "client_id": "f831046f-e428-4e58-bd36-e2273f24892f"
+  },
+  "emotions": [
+    {
+      "timestamp": 1761374889.7398007,
+      "investor_state": "evaluative",
+      "primary_emotion": "Confusion",
+      "confidence": 0.3970465660095215,
+      "top_emotions": [
+        {
+          "name": "Confusion",
+          "score": 0.3970465660095215
+        },
+        {
+          "name": "Concentration",
+          "score": 0.35748377442359924
+        },
+        {
+          "name": "Doubt",
+          "score": 0.30816230177879333
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.28748923540115356
+        },
+        {
+          "name": "Interest",
+          "score": 0.28551357984542847
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374891.3982031,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.3684218227863312,
+      "top_emotions": [
+        {
+          "name": "Disappointment",
+          "score": 0.44536811113357544
+        },
+        {
+          "name": "Calmness",
+          "score": 0.4408518970012665
+        },
+        {
+          "name": "Boredom",
+          "score": 0.41055771708488464
+        },
+        {
+          "name": "Sadness",
+          "score": 0.38783779740333557
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3684218227863312
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374892.9529595,
+      "investor_state": "evaluative",
+      "primary_emotion": "Concentration",
+      "confidence": 0.3769366443157196,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.4578782916069031
+        },
+        {
+          "name": "Concentration",
+          "score": 0.3769366443157196
+        },
+        {
+          "name": "Boredom",
+          "score": 0.37494197487831116
+        },
+        {
+          "name": "Interest",
+          "score": 0.33547157049179077
+        },
+        {
+          "name": "Confusion",
+          "score": 0.3325866460800171
+        }
+      ],
+      "face_detected": true
+    },
+    {
+      "timestamp": 1761374894.426613,
+      "investor_state": "positive",
+      "primary_emotion": "Amusement",
+      "confidence": 0.2507493495941162,
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "score": 0.5258640646934509
+        },
+        {
+          "name": "Boredom",
+          "score": 0.3898221552371979
+        },
+        {
+          "name": "Concentration",
+          "score": 0.38438576459884644
+        },
+        {
+          "name": "Interest",
+          "score": 0.35590314865112305
+        },
+        {
+          "name": "Disappointment",
+          "score": 0.3116261959075928
+        }
+      ],
+      "face_detected": true
+    }
+  ],
+  "intervals": [
+    {
+      "interval_number": 1,
+      "timestamp": 1761374890.2398007,
+      "interval_start": 1761374889.7398007,
+      "interval_end": 1761374891.3982031,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Disappointment",
+          "avg_score": 0.366,
+          "trend": "stable"
+        },
+        {
+          "name": "Calmness",
+          "avg_score": 0.363,
+          "trend": "stable"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.363,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    },
+    {
+      "interval_number": 2,
+      "timestamp": 1761374893.4529595,
+      "interval_start": 1761374892.9529595,
+      "interval_end": 1761374894.426613,
+      "investor_state": "evaluative",
+      "top_emotions": [
+        {
+          "name": "Calmness",
+          "avg_score": 0.492,
+          "trend": "increasing"
+        },
+        {
+          "name": "Boredom",
+          "avg_score": 0.382,
+          "trend": "new"
+        },
+        {
+          "name": "Concentration",
+          "avg_score": 0.381,
+          "trend": "stable"
+        }
+      ],
+      "words": [],
+      "full_text": "",
+      "frames_count": 2,
+      "flags": {
+        "high_confidence": true,
+        "emotion_shift": false,
+        "state_transition": false,
+        "silence": true
+      }
+    }
+  ],
+  "llm_updates": [],
+  "events": []
+}
