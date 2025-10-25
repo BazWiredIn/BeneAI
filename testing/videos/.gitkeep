@@ -1,0 +1,4 @@
+# This file ensures the videos/ directory is tracked by git
+# Place your test videos and annotation files here:
+# - test_video.mp4
+# - test_video_annotations.json

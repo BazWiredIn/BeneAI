@@ -1,0 +1,74 @@
+{
+  "_comment": "Ground Truth Annotation Template for BeneAI Performance Testing",
+  "_instructions": [
+    "1. Copy this template and rename it to match your test video (e.g., test_video_annotations.json)",
+    "2. Fill in the 'video' field with the filename of your test video",
+    "3. Set 'fps' to the original frame rate of your video (use 'ffmpeg -i video.mp4' to check)",
+    "4. Add annotations for each moment where emotions/states are clearly visible",
+    "5. Use timestamps in seconds (can be decimal, e.g., 2.5 for 2.5 seconds)",
+    "6. Emotion values should match Hume AI emotions or common emotions (see list below)",
+    "7. Investor states: 'receptive', 'positive', 'evaluative', 'skeptical', 'neutral'"
+  ],
+  "_emotion_reference": {
+    "primary_emotions": ["Joy", "Sadness", "Anger", "Fear", "Surprise", "Disgust"],
+    "investor_relevant": ["Interest", "Curiosity", "Contemplation", "Confusion", "Doubt", "Excitement", "Satisfaction"],
+    "hume_states": ["receptive", "positive", "evaluative", "skeptical", "neutral"]
+  },
+  "video": "sample_pitch_video.mp4",
+  "fps": 30,
+  "duration_seconds": 120.0,
+  "annotator": "Your Name",
+  "annotation_date": "2025-10-25",
+  "notes": "Optional notes about the video content, context, or annotation decisions",
+  "annotations": [
+    {
+      "timestamp": 2.5,
+      "emotion": "Curiosity",
+      "investor_state": "evaluative",
+      "confidence": 0.9,
+      "notes": "Clear eyebrow raise and forward lean"
+    },
+    {
+      "timestamp": 5.0,
+      "emotion": "Interest",
+      "investor_state": "receptive",
+      "confidence": 0.95,
+      "notes": "Smile and nodding"
+    },
+    {
+      "timestamp": 8.3,
+      "emotion": "Contemplation",
+      "investor_state": "evaluative",
+      "confidence": 0.8,
+      "notes": "Looking up, slight frown - thinking"
+    },
+    {
+      "timestamp": 12.0,
+      "emotion": "Doubt",
+      "investor_state": "skeptical",
+      "confidence": 0.85,
+      "notes": "Frown and head tilt"
+    },
+    {
+      "timestamp": 15.5,
+      "emotion": "Excitement",
+      "investor_state": "positive",
+      "confidence": 1.0,
+      "notes": "Wide smile, eyes wide - very clear positive reaction"
+    },
+    {
+      "timestamp": 20.0,
+      "emotion": "Calmness",
+      "investor_state": "neutral",
+      "confidence": 0.7,
+      "notes": "Neutral expression, attentive but not strongly emotional"
+    }
+  ],
+  "_validation_notes": [
+    "Ensure timestamps are in ascending order",
+    "Confidence scores should be 0.0-1.0 (1.0 = very confident in annotation)",
+    "Try to annotate every 2-5 seconds for comprehensive testing",
+    "Mark clear emotional transitions, not every single frame",
+    "Use 'notes' field to document facial cues that led to your annotation"
+  ]
+}
