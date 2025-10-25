@@ -409,24 +409,14 @@ async def handle_video_frame(client_id: str, frame_data: str):
     """Handle incoming video frame for emotion detection"""
 
     try:
-        # Frame rate throttling (3-5 FPS)
         current_time = time.time()
         connection = manager.active_connections.get(client_id)
 
         if not connection:
             return
 
-        last_frame_time = connection["last_frame_time"]
-
-        # Use Hume frame rate for throttling
-        min_interval = 1.0 / settings.hume_frame_rate
-
-        # Skip frame if too soon
-        if current_time - last_frame_time < min_interval:
-            logger.debug(f"Skipping frame for {client_id} (throttling)")
-            return
-
-        # Update last frame time
+        # Note: Frame rate throttling is now handled entirely by frontend (2 FPS)
+        # Backend processes all received frames immediately for lower latency
         connection["last_frame_time"] = current_time
 
         # Analyze with Hume AI

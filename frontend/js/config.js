@@ -16,15 +16,15 @@ const CONFIG = {
 
     // Video Configuration
     VIDEO: {
-        width: 640,
-        height: 480,
+        width: 480,  // Reduced from 640 for faster encoding (still plenty for emotion detection)
+        height: 360,  // Reduced from 480 for faster encoding
         facingMode: 'user',
         frameRate: 30
     },
 
     // Processing Configuration
     PROCESSING: {
-        targetFPS: 3,  // Target 3 frames per second for emotion analysis
+        targetFPS: 2,  // Target 2 frames per second for emotion analysis (reduced for latency)
         updateInterval: 2000,  // Send updates every 2 seconds
         emotionSmoothingWindow: 5  // Average over last 5 frames
     },

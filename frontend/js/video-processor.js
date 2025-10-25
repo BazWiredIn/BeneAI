@@ -1,6 +1,7 @@
 /**
  * Video Processor
- * Captures video frames and sends to backend for Luxand emotion detection
+ * Captures video frames and sends to backend for emotion detection
+ * Uses Web Worker for non-blocking JPEG encoding to reduce latency
  */
 
 class VideoProcessor {
@@ -13,6 +14,63 @@ class VideoProcessor {
         this.videoElement = null;
         this.canvasElement = null;
         this.canvasCtx = null;
+
+        // Web Worker for non-blocking encoding
+        this.encodingWorker = null;
+        this.workerReady = false;
+        this.pendingFrames = 0;  // Track frames being encoded
+        this.maxPendingFrames = 2;  // Drop frames if encoding backs up
+
+        // Initialize Web Worker
+        this.initWorker();
+    }
+
+    /**
+     * Initialize Web Worker for encoding
+     */
+    initWorker() {
+        try {
+            this.encodingWorker = new Worker('js/video-worker.js');
+
+            this.encodingWorker.addEventListener('message', (event) => {
+                const { type, frameData, frameNumber, size, error } = event.data;
+
+                switch (type) {
+                    case 'ready':
+                        debug('Video encoding worker ready');
+                        break;
+
+                    case 'initialized':
+                        this.workerReady = true;
+                        debug('Video encoding worker initialized');
+                        break;
+
+                    case 'encoded':
+                        // Frame encoded successfully
+                        this.pendingFrames--;
+                        debug(`Frame ${frameNumber} encoded (${(size / 1024).toFixed(1)}KB, ${this.pendingFrames} pending)`);
+
+                        // Call the callback with encoded frame data
+                        if (this.onFrameCaptureCallback) {
+                            this.onFrameCaptureCallback(frameData);
+                        }
+                        break;
+
+                    case 'error':
+                        this.pendingFrames--;
+                        console.error('Worker encoding error:', error);
+                        break;
+                }
+            });
+
+            this.encodingWorker.addEventListener('error', (error) => {
+                console.error('Worker error:', error);
+            });
+
+        } catch (error) {
+            console.error('Failed to initialize Web Worker:', error);
+            debug('Web Worker not supported, falling back to synchronous encoding');
+        }
     }
 
     /**
@@ -41,6 +99,18 @@ class VideoProcessor {
             await this.videoElement.play();
 
             debug('Webcam initialized');
+
+            // Initialize worker with video dimensions (once video is ready)
+            if (this.encodingWorker && this.videoElement.videoWidth > 0) {
+                this.encodingWorker.postMessage({
+                    type: 'init',
+                    data: {
+                        width: this.videoElement.videoWidth,
+                        height: this.videoElement.videoHeight
+                    }
+                });
+            }
+
         } catch (error) {
             console.error('Failed to initialize webcam:', error);
             throw new Error('Could not access webcam: ' + error.message);
@@ -87,19 +157,37 @@ class VideoProcessor {
             this.stream = null;
         }
 
+        // Terminate worker
+        if (this.encodingWorker) {
+            this.encodingWorker.terminate();
+            this.encodingWorker = null;
+            this.workerReady = false;
+            debug('Video encoding worker terminated');
+
+            // Re-initialize worker for next start
+            this.initWorker();
+        }
+
         debug('Video frame capture stopped');
     }
 
     /**
-     * Capture a frame and send to backend
+     * Capture a frame and send to worker for encoding
+     * Uses async createImageBitmap to avoid blocking main thread
      */
-    captureFrame() {
+    async captureFrame() {
         try {
-            // Resize canvas to match video
+            // Frame dropping: skip if too many frames pending encoding
+            if (this.pendingFrames >= this.maxPendingFrames) {
+                debug(`Dropping frame ${this.frameCount + 1} (${this.pendingFrames} frames pending encoding)`);
+                return;
+            }
+
+            // Resize canvas to match video (for local preview)
             this.canvasElement.width = this.videoElement.videoWidth;
             this.canvasElement.height = this.videoElement.videoHeight;
 
-            // Draw current video frame to canvas
+            // Draw current video frame to canvas (for local preview)
             this.canvasCtx.drawImage(
                 this.videoElement,
                 0, 0,
@@ -107,16 +195,36 @@ class VideoProcessor {
                 this.canvasElement.height
             );
 
-            // Convert canvas to base64 JPEG
-            const frameData = this.canvasElement.toDataURL('image/jpeg', 0.8);
-
-            // Callback with frame data
-            if (this.onFrameCaptureCallback) {
-                this.onFrameCaptureCallback(frameData);
-            }
-
             this.frameCount++;
-            debug(`Frame ${this.frameCount} captured`);
+
+            // Use Web Worker for encoding if available
+            if (this.encodingWorker && this.workerReady) {
+                // Create ImageBitmap from video (async, but fast)
+                const imageBitmap = await createImageBitmap(this.videoElement);
+
+                // Send to worker for encoding (non-blocking)
+                this.pendingFrames++;
+                this.encodingWorker.postMessage({
+                    type: 'encode',
+                    data: {
+                        imageBitmap: imageBitmap,
+                        quality: 0.6,  // JPEG quality
+                        frameNumber: this.frameCount
+                    }
+                }, [imageBitmap]);  // Transfer ImageBitmap (zero-copy)
+
+                debug(`Frame ${this.frameCount} sent to worker (${this.pendingFrames} pending)`);
+
+            } else {
+                // Fallback: synchronous encoding (if worker not available)
+                const frameData = this.canvasElement.toDataURL('image/jpeg', 0.6);
+
+                if (this.onFrameCaptureCallback) {
+                    this.onFrameCaptureCallback(frameData);
+                }
+
+                debug(`Frame ${this.frameCount} captured (sync fallback)`);
+            }
 
         } catch (error) {
             console.error('Error capturing frame:', error);
