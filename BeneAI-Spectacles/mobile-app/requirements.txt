@@ -1,0 +1,40 @@
+# BeneAI Spectacles Mobile App Dependencies
+# Core web framework
+flask==3.0.0
+flask-cors==4.0.0
+websockets==12.0
+
+# AI and ML libraries
+opencv-python==4.8.1.78
+mediapipe==0.10.7
+numpy==1.24.3
+scipy==1.11.4
+
+# Audio processing
+pyaudio==0.2.11
+speechrecognition==3.10.0
+
+# HTTP and API clients
+requests==2.31.0
+httpx==0.25.2
+
+# Data processing
+pandas==2.1.4
+matplotlib==3.8.2
+
+# BLE communication
+bleak==0.21.1
+asyncio-mqtt==0.16.1
+
+# Configuration and utilities
+python-dotenv==1.0.0
+pydantic==2.5.0
+loguru==0.7.2
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
+
+
