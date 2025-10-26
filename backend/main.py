@@ -8,7 +8,7 @@ import uuid
 import time
 import base64
 import asyncio
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import logging
@@ -163,6 +163,85 @@ async def health_check():
 async def cache_stats():
     """Get cache statistics"""
     return advice_cache.stats()
+
+
+# Spectacles camera frame endpoint
+@app.post("/api/spectacles-frame")
+async def handle_spectacles_frame(request: Request):
+    """Handle camera frame from Spectacles"""
+    try:
+        data = await request.json()
+        frame_data = data.get("frame")
+        timestamp = data.get("timestamp", time.time())
+        
+        if not frame_data:
+            return {"error": "No frame data provided"}
+        
+        # Create a mock client_id for Spectacles
+        client_id = "spectacles_device"
+        
+        # Process the frame using your existing logic
+        await handle_video_frame(client_id, frame_data)
+        
+        return {
+            "success": True,
+            "message": "Frame processed successfully",
+            "timestamp": int(time.time() * 1000)
+        }
+        
+    except Exception as e:
+        logger.error(f"Error processing Spectacles frame: {e}")
+        return {"error": str(e)}
+
+
+# Spectacles speech transcription endpoint
+@app.post("/api/spectacles-speech")
+async def handle_spectacles_speech(request: Request):
+    """Handle speech transcription from Spectacles ASR"""
+    try:
+        data = await request.json()
+        transcription = data.get("transcription")
+        timestamp = data.get("timestamp", time.time())
+        
+        if not transcription:
+            return {"error": "No transcription provided"}
+        
+        logger.info(f"🗣️  Spectacles Speech: \"{transcription}\"")
+        
+        # Create a mock client_id for Spectacles
+        client_id = "spectacles_device"
+        
+        # Get connection (create if doesn't exist)
+        connection = manager.active_connections.get(client_id)
+        if not connection:
+            # Initialize connection for Spectacles if not exists
+            logger.info(f"Creating connection for {client_id}")
+            # Note: For REST API, we'll use a simpler approach than WebSocket
+            # Just process the transcription directly
+        
+        # Add transcription to speech mapper
+        if connection:
+            speech_mapper = connection.get("speech_mapper")
+            if speech_mapper:
+                current_time = time.time()
+                # Add transcript as a segment
+                speech_mapper.add_transcript_segment(
+                    transcription, 
+                    current_time - 2.0,  # Approximate start (2 seconds ago)
+                    current_time
+                )
+                logger.info(f"✅ Added transcription to speech mapper")
+        
+        return {
+            "success": True,
+            "message": "Transcription received",
+            "transcription": transcription,
+            "timestamp": int(time.time() * 1000)
+        }
+        
+    except Exception as e:
+        logger.error(f"Error processing Spectacles speech: {e}")
+        return {"error": str(e)}
 
 
 # WebSocket endpoint
@@ -892,4 +971,27 @@ async def handle_parameters(client_id: str, parameters: dict):
 # Run with: uvicorn main:app --reload --port 8000
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=settings.port)
+    import ssl
+    
+    # Check if SSL certificates exist
+    cert_file = "cert.pem"
+    key_file = "key.pem"
+    
+    if os.path.exists(cert_file) and os.path.exists(key_file):
+        # Run with HTTPS
+        ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        ssl_context.load_cert_chain(cert_file, key_file)
+        
+        logger.info("🔒 Starting HTTPS server...")
+        uvicorn.run(
+            app, 
+            host="0.0.0.0", 
+            port=settings.port,
+            ssl_keyfile=key_file,
+            ssl_certfile=cert_file
+        )
+    else:
+        # Run with HTTP (fallback)
+        logger.info("🌐 Starting HTTP server (no SSL certificates found)...")
+        logger.info(f"   To enable HTTPS, create {cert_file} and {key_file}")
+        uvicorn.run(app, host="0.0.0.0", port=settings.port)
