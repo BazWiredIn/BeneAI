@@ -123,7 +123,7 @@ Edit `backend/.env`:
 
 ```bash
 # Deepgram Configuration (Speech-to-Text)
-DEEPGRAM_API_KEY=your_actual_key_here  # Replace this!
+DEEPGRAM_API_KEY=61e7d384db8ca458f128b62aaa8fd2e5b455051c  # Replace this!
 DEEPGRAM_MODEL=nova-2
 DEEPGRAM_LANGUAGE=en-US
 DEEPGRAM_PUNCTUATE=true

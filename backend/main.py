@@ -24,7 +24,7 @@ from app.speech_mapper import SpeechMapper
 from app.llm_context_builder import LLMContextBuilder
 from app.prompts import INVESTOR_STATE_COLOR, INVESTOR_STATE_EMOJI
 from app.session_logger import get_session_logger, close_session_logger
-
+from app.lens_studio import router as lens_router
 
 # Configure logging
 logging.basicConfig(
@@ -48,6 +48,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(lens_router)
+logger.info("✓ Lens Studio endpoint registered at /api/spectacles/analyze")
 
 # Connection manager
 class ConnectionManager:
